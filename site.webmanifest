@@ -1,0 +1,20 @@
+{
+  "name": "Ancestral Mark Editorial",
+  "short_name": "Ancestral Mark",
+  "icons": [
+    {
+      "src": "/_icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/_icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#200305",
+  "background_color": "#200305",
+  "display": "standalone",
+  "start_url": "/"
+}

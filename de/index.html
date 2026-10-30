@@ -6,11 +6,29 @@
 <title>Ancestral Mark Editorial</title>
 <meta name="description" content="Sorgfältig gemachte Rätselbücher, Wortsuchen und kleine Momente der Freude.">
 <link rel="canonical" href="https://ancestralmark.github.io/de/">
-<meta property="og:title" content="Ancestral Mark Editorial">
-<meta property="og:description" content="Sorgfältig gemachte Rätselbücher, Wortsuchen und kleine Momente der Freude.">
+<link rel="icon" href="/_icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/_icons/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/_icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:title" content="One Book. A Pencil. No Battery. No Signal.">
+<meta property="og:description" content="Thoughtfully crafted puzzle books for a moment away from screens. Unplug, unwind, and enjoy. Find your language.">
 <meta property="og:url" content="https://ancestralmark.github.io/de/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#460F10">
+<meta property="og:site_name" content="Ancestral Mark Editorial">
+<meta property="og:locale" content="de_DE">
+<!-- poza care apare in WhatsApp, Messenger, Facebook. Fara ea linkul arata
+     ca un link gol si lumea se fereste sa-l deschida. -->
+<meta property="og:image" content="https://ancestralmark.github.io/_img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="One Book. A Pencil. No Battery. No Signal.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One Book. A Pencil. No Battery. No Signal.">
+<meta name="twitter:description" content="Thoughtfully crafted puzzle books for a moment away from screens. Unplug, unwind, and enjoy. Find your language.">
+<meta name="twitter:image" content="https://ancestralmark.github.io/_img/share.jpg">
+<!-- O singura culoare de bara. Doua etichete theme-color fara media query
+     se bat intre ele si browserul o foloseste doar pe ultima. -->
+<meta name="theme-color" content="#200305">
 
 <style>/* FONTURILE STAU PE SITE-UL NOSTRU, nu la Google.
    Doua motive. Unul legal: cand pagina cere un font de la Google, browserul
@@ -49,6 +67,11 @@
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+/* Oprim saltul elastic de la capetele paginii. Pe iPhone, tragerea peste
+   margine ridica tot continutul si lasa o taietura deasupra barei de adresa;
+   fara el pagina sta pe loc. Opreste si trasul de reimprospatare, ceea ce aici
+   e bine: n-avem ce reimprospata. */
+html,body{overscroll-behavior:none}
 body{
   margin:0;
   /* --deep = tonul exact din spatele mainii in imagine. se vede doar in
@@ -66,7 +89,12 @@ body{
   user-select:none}
 
 /* fundalul: imaginea intreaga, in spate */
-.leaf{position:fixed;inset:0;z-index:0;pointer-events:none;
+.leaf{position:fixed;left:0;right:0;top:0;z-index:0;pointer-events:none;
+  /* pe iPhone bara de adrese se ascunde la derulare si ecranul creste. Daca
+     stratul are doar inaltimea de acum, ramane o taietura neagra jos cand bara
+     se retrage. "lvh" inseamna inaltimea ecranului CU barele ascunse, deci
+     fundalul acopera si zona care apare abia atunci. */
+  height:100vh;height:100lvh;
   background:url("../_img/bg.jpg") no-repeat center center;background-size:cover}
 
 /* voal spre partea de jos: acolo imaginea are frunze deschise si textul
@@ -77,7 +105,7 @@ body{
 
 /* acelasi fundal, dar DOAR rama de frunze — banda de sus si cea de jos —
    DEASUPRA continutului. continutul trece pe sub ele, nu peste. */
-.leaf.b{display:block;inset:0;z-index:3;        /* acelasi cadru ca stratul de baza */
+.leaf.b{display:block;left:0;right:0;top:0;height:100vh;height:100lvh;z-index:3;        /* acelasi cadru ca stratul de baza */
   --rama:linear-gradient(to bottom,#000 0 10%,transparent 19% 95.5%,rgba(0,0,0,.5) 100%);
   -webkit-mask-image:var(--rama); mask-image:var(--rama)}
 
@@ -141,7 +169,6 @@ ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 .row{background:rgba(170,209,237,.20);color:var(--cream);
   border:1px solid rgba(170,209,237,.30);
   padding:.66rem .85rem;min-height:3.4rem;backdrop-filter:blur(2px)}
-.row:hover{background:rgba(170,209,237,.28);border-color:rgba(170,209,237,.55)}
 .row img{width:2.2rem;height:2.2rem}
 .row .tt{font-size:1.04rem}
 .row .ss{font-size:.88rem}
@@ -166,13 +193,100 @@ footer{margin-top:1.9rem;padding-top:1.3rem;
   border-radius:.9rem;cursor:pointer;margin-bottom:1.05rem}
 .share svg{width:1.2rem;height:1.2rem;flex:none;display:block;fill:none;
   stroke:var(--cream);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.share:hover{background:rgba(170,209,237,.12)}
 /* globul: se intelege fara sa citesti, oricare ar fi limba paginii */
 .lang{font-size:.92rem;color:var(--blue);margin:0;
   display:flex;align-items:center;justify-content:center;gap:.5rem}
 .lang label{display:flex;align-items:center;cursor:pointer}
 .lang svg{width:1.25rem;height:1.25rem;display:block;fill:none;
   stroke:var(--blue);stroke-width:1.6;stroke-linecap:round}
+/* PANOUL DE LIMBI. Inlocuieste lista de sistem, care pe iPhone nu se deschidea
+   la atingere din bara de sus. Acum e o fereastra a noastra, la fel peste tot. */
+.langbtn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+  background:rgba(170,209,237,.07);color:var(--cream);border:1px solid rgba(170,209,237,.22);
+  border-radius:.8rem;padding:.55rem .9rem;font:inherit;font-weight:600;font-size:.95rem}
+.langbtn svg{width:1.15rem;height:1.15rem;fill:none;stroke:var(--blue);stroke-width:1.6}
+.langbtn .go{opacity:.55}
+/* Panoul e o singura piesa de sticla. Rama, colturile si incetosarea stau pe
+   cutia de afara; jumatatile dinauntru n-au nimic al lor. Asa marginea de jos
+   ramane intreaga chiar daca lista dinauntru se stinge. */
+.langbox{padding:0;max-width:min(92vw,33rem);width:100%;
+  border-radius:1.4rem;overflow:hidden;
+  border:1px solid rgba(255,255,255,.20);
+  background:rgba(42,6,8,.34);
+  backdrop-filter:blur(36px) saturate(1.3);
+  -webkit-backdrop-filter:blur(36px) saturate(1.3);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
+  filter:drop-shadow(0 26px 58px rgba(0,0,0,.6))}
+/* stingem pagina din spate INAINTE sa o incetoseze panoul, altfel iconitele
+   colorate razbat prin sticla ca niste fantome */
+.langbox::backdrop{background:rgba(10,2,3,.80);backdrop-filter:blur(9px)}
+.langbox>div{background:transparent;border:0;border-radius:0;
+  backdrop-filter:none;box-shadow:none}
+.langbox>.lbtop{padding:1rem 1.15rem .85rem}
+.lbtop{display:flex;align-items:center;justify-content:space-between;
+  position:relative;border-bottom:0}
+/* un fir intre cap si lista, nu o cusatura de doua rame */
+.lbtop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22) 18%,
+             rgba(255,255,255,.22) 82%,transparent)}
+.lbtop b{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.1rem;color:var(--cream)}
+.lbx{background:none;border:0;color:var(--cream);font-size:1.7rem;line-height:1;
+  cursor:pointer;padding:0 .3rem;opacity:.7}
+.lbgrid{display:grid;gap:.45rem;padding:.85rem;
+  grid-template-columns:1fr 1fr;max-height:min(62vh,29rem);overflow-y:auto;
+  /* cand ajungi la capatul listei, nu se pune pagina din spate in miscare */
+  overscroll-behavior:contain;
+  /* se stinge jos ca sa se vada ca mai e de derulat; atinge doar randurile,
+     nu si marginea panoului, care sta pe cutia de afara */
+  mask-image:linear-gradient(to bottom,#000 calc(100% - 2rem),transparent);
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 2rem),transparent)}
+/* telefon: o singura coloana. tableta si laptop: doua. */
+@media (max-width:30rem){.lbgrid{grid-template-columns:1fr}}
+/* ecrane mari: trei coloane, si intra toate cele 25 fara derulare */
+@media (min-width:1600px){
+  .langbox{max-width:min(88vw,48rem)}
+  .lbgrid{grid-template-columns:1fr 1fr 1fr;max-height:min(70vh,36rem)}
+}
+.lbi{display:block;text-decoration:none;color:var(--cream);border-radius:.75rem;
+  padding:.7rem .8rem;font-size:1rem;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.11)}
+.lbi[aria-current]{background:var(--orange);color:var(--onorange);font-weight:600;
+  box-shadow:0 4px 16px rgba(246,127,44,.35)}
+
+/* ---------------------------------------------------------------
+   RASPUNSUL LA ATINGERE SI LA CURSOR
+   Tot ce se poate apasa primeste o raza de lumina care urmareste
+   cursorul, plus o ridicare scurta. Totul sta sub (hover:hover):
+   pe ecrane tactile nu exista cursor, iar daca am lasa hover-ul
+   liber ar ramane agatat pe ce ai atins ultima data.
+   --------------------------------------------------------------- */
+.pill,.row,.lbi,.share,.langbtn,.swap{position:relative;
+  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s ease,
+             border-color .22s ease, background-color .22s ease}
+.pill::after,.row::after,.lbi::after{content:"";position:absolute;inset:0;
+  border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .26s ease;
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
+             rgba(255,255,255,.28), rgba(255,255,255,.07) 42%, transparent 68%)}
+/* butonul secundar e sticla si el: la hover se incetoseaza mai tare */
+.shop-alt{backdrop-filter:blur(8px) saturate(1.2);
+  -webkit-backdrop-filter:blur(8px) saturate(1.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+
+@media (hover:hover){
+  .pill:hover,.row:hover,.lbi:hover{transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(0,0,0,.5)}
+  .pill:hover::after,.row:hover::after,.lbi:hover::after{opacity:1}
+  .shop-alt:hover,.row:hover,.lbi:hover{border-color:rgba(255,255,255,.55)}
+  .shop-alt:hover{backdrop-filter:blur(15px) saturate(1.45);
+    -webkit-backdrop-filter:blur(15px) saturate(1.45)}
+  .row:hover{background:rgba(170,209,237,.28)}
+  .share:hover,.swap:hover{background:rgba(170,209,237,.22)}
+  .langbtn:hover{background:rgba(170,209,237,.13)}
+  .lbx:hover{opacity:1}
+}
+/* pe telefon nu exista cursor: singurul semn ca ai atins e apasarea */
+.pill:active,.row:active,.lbi:active,.share:active,.langbtn:active,.swap:active{
+  transform:translateY(0) scale(.985)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
   white-space:nowrap}                      /* ramane pentru cititoarele de ecran */
 .lang select{font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:.55rem;
@@ -256,6 +370,12 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
 @media (min-aspect-ratio:1/1){
   html,body{height:100%}
   body{overflow:hidden}
+  /* Pe ecran lat bara de sus deschide chiar ea lista, deci selectorul de jos
+     nu mai are ce cauta. Dar il ascundem DOAR atunci: cand bara propune o
+     limba anume, clicul pe ea pleaca spre acea pagina, si fara selectorul de
+     jos omul care vrea a treia limba ar ramane fara nicio cale. Clasa o pune
+     scriptul, in momentul in care bara devine "alege alta limba". */
+  body.bara-lista .lang{display:none}
   /* cele doua zone nu se departeaza una de alta pe ecranele late: au latimi
      maxime si stau lipite in mijloc, nu intinse pana la margini */
   .sheet{max-width:none;width:100%;height:100%;margin:0;padding:0 3vw;
@@ -334,15 +454,15 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
 
   <div class="list">
   <div class="shops">
-    <a class="pill shop-main" href="https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB" rel="noopener">
+    <a class="pill shop-main" href="https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB" target="_blank" rel="noopener noreferrer">
       <img src="../_icons/amazon.png" alt="">
       <span><span class="tt">Unsere Bücher</span><span class="ss">Amazon.de</span></span>
       <span class="go" aria-hidden="true">&rsaquo;</span></a>
-    <a class="pill shop-alt" id="pk" rel="noopener" hidden>
+    <a class="pill shop-alt" id="pk" target="_blank" rel="noopener noreferrer" hidden>
       <img src="../_icons/amazon.png" alt="">
       <span><span class="tt"></span><span class="ss"></span></span>
       <span class="go" aria-hidden="true">&rsaquo;</span></a>
-    <a class="pill shop-alt" href="https://www.etsy.com/shop/AncestralEditorial" rel="noopener">
+    <a class="pill shop-alt" href="https://www.etsy.com/shop/AncestralEditorial" target="_blank" rel="noopener noreferrer">
       <img src="../_icons/etsy.png" alt="">
       <span><span class="tt">Zu Hause drucken</span><span class="ss">PDF-Seiten auf Etsy</span></span>
       <span class="go" aria-hidden="true">&rsaquo;</span></a>
@@ -350,26 +470,31 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
 
   <h2>Folge uns</h2>
   <ul>
-    <li><a class="row" href="https://www.tiktok.com/@ancestral_mark_editorial" rel="noopener me"><img src="../_icons/tiktok.png" alt=""><span><span class="tt">TikTok</span><span class="ss">Worträtsel</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.instagram.com/ancestralmark/" rel="noopener me"><img src="../_icons/instagram.png" alt=""><span><span class="tt">Instagram</span><span class="ss">Hinter den Seiten</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.facebook.com/profile.php?id=61595210855885" rel="noopener me"><img src="../_icons/facebook.png" alt=""><span><span class="tt">Facebook</span><span class="ss">Komm in die Community</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.youtube.com/@Ancestral_Mark_Editorial" rel="noopener me"><img src="../_icons/youtube.png" alt=""><span><span class="tt">YouTube</span><span class="ss">Videos und Rätsel</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.linkedin.com/in/ancestral-mark-editorial/" rel="noopener me"><img src="../_icons/linkedin.png" alt=""><span><span class="tt">LinkedIn</span><span class="ss">Unsere Verlagswelt</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://x.com/ancestral_mark" rel="noopener me"><img src="../_icons/x.png" alt=""><span><span class="tt">X</span><span class="ss">Neues und Updates</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.threads.com/@ancestralmark" rel="noopener me"><img src="../_icons/threads.png" alt=""><span><span class="tt">Threads</span><span class="ss">Kurze Gespräche</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.tiktok.com/@ancestral_mark_editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/tiktok.png" alt=""><span><span class="tt">TikTok</span><span class="ss">Worträtsel</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.instagram.com/ancestralmark/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/instagram.png" alt=""><span><span class="tt">Instagram</span><span class="ss">Hinter den Seiten</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.facebook.com/profile.php?id=61595210855885" target="_blank" rel="noopener noreferrer me"><img src="../_icons/facebook.png" alt=""><span><span class="tt">Facebook</span><span class="ss">Komm in die Community</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.youtube.com/@Ancestral_Mark_Editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/youtube.png" alt=""><span><span class="tt">YouTube</span><span class="ss">Videos und Rätsel</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.linkedin.com/in/ancestral-mark-editorial/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/linkedin.png" alt=""><span><span class="tt">LinkedIn</span><span class="ss">Unsere Verlagswelt</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://x.com/ancestral_mark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/x.png" alt=""><span><span class="tt">X</span><span class="ss">Neues und Updates</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.threads.com/@ancestralmark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/threads.png" alt=""><span><span class="tt">Threads</span><span class="ss">Kurze Gespräche</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
   </ul>
 
   <footer>
     <button class="share" type="button" id="sh"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5V3.5m0 0L8.6 6.9M12 3.5l3.4 3.4"/><path d="M5.5 12v7a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-7"/></svg><span>Zeig es einer Freundin</span></button>
-    <p class="lang"><label for="lg" title="Sprache">
+    <p class="lang"><button type="button" class="langbtn" id="lgb" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/>
         <path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18"/></svg>
-      <span class="vh">Sprache</span></label>
-      <select id="lg"><option value="ca">Català</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="de" selected>Deutsch</option><option value="uk">English (UK)</option><option value="en">English (US)</option><option value="es">Español</option><option value="fr">Français</option><option value="hr">Hrvatski</option><option value="it">Italiano</option><option value="lt">Lietuvių</option><option value="hu">Magyar</option><option value="nl">Nederlands</option><option value="no">Norsk</option><option value="pl">Polski</option><option value="pt">Português</option><option value="ro">Română</option><option value="sq">Shqip</option><option value="sk">Slovenčina</option><option value="sl">Slovenščina</option><option value="sr">Srpski</option><option value="fi">Suomi</option><option value="sv">Svenska</option><option value="el">Ελληνικά</option><option value="ar">العربية</option></select></p>
+      <span>Deutsch</span>
+      <span class="go" aria-hidden="true">&rsaquo;</span></button></p>
     <small>&copy; Ancestral Mark Editorial</small>
   </footer>
   </div>
 </main>
+<dialog class="langbox" id="lp" aria-label="Sprache">
+  <div class="lbtop"><b>Sprache</b>
+    <button type="button" class="lbx" id="lpx" aria-label="&times;">&times;</button></div>
+  <div class="lbgrid"><a class="lbi" href="/ca/" lang="ca">Català</a><a class="lbi" href="/cs/" lang="cs">Čeština</a><a class="lbi" href="/da/" lang="da">Dansk</a><a class="lbi" href="/de/" lang="de" aria-current="page">Deutsch</a><a class="lbi" href="/uk/" lang="uk">English (UK)</a><a class="lbi" href="/en/" lang="en">English (US)</a><a class="lbi" href="/es/" lang="es">Español</a><a class="lbi" href="/fr/" lang="fr">Français</a><a class="lbi" href="/hr/" lang="hr">Hrvatski</a><a class="lbi" href="/it/" lang="it">Italiano</a><a class="lbi" href="/lt/" lang="lt">Lietuvių</a><a class="lbi" href="/hu/" lang="hu">Magyar</a><a class="lbi" href="/nl/" lang="nl">Nederlands</a><a class="lbi" href="/no/" lang="no">Norsk</a><a class="lbi" href="/pl/" lang="pl">Polski</a><a class="lbi" href="/pt/" lang="pt">Português</a><a class="lbi" href="/ro/" lang="ro">Română</a><a class="lbi" href="/sq/" lang="sq">Shqip</a><a class="lbi" href="/sk/" lang="sk">Slovenčina</a><a class="lbi" href="/sl/" lang="sl">Slovenščina</a><a class="lbi" href="/sr/" lang="sr">Srpski</a><a class="lbi" href="/fi/" lang="fi">Suomi</a><a class="lbi" href="/sv/" lang="sv">Svenska</a><a class="lbi" href="/el/" lang="el">Ελληνικά</a><a class="lbi" href="/ar/" lang="ar">العربية</a></div>
+</dialog>
 <div class="toast" id="tst"></div>
 <script>
 (function(){
@@ -384,10 +509,36 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
     var bothEN = pageIsEN && (c==="en"||c==="uk");
     document.getElementById("swt").textContent = bothEN ? SWEN[c] : SW[c];
     el.setAttribute("href","/"+c+"/"); el.setAttribute("lang",c); el.classList.add("on");
-    el.addEventListener("click", remember);     // tine minte ca a ales o data
+    el.addEventListener("click", function(ev){
+      remember();                               // tine minte ca a ales o data
+      plecCuFrunze(ev, "/"+c+"/");              // si cad frunzele peste trecere
+    });
   }
-  var barDone=false, SWKEY="amv_lang_switched", sel=document.getElementById("lg");
+  var barDone=false, SWKEY="amv_lang_switched";
+  var panou=document.getElementById("lp");
+  function deschidePanoul(ev){
+    if (ev) ev.preventDefault();
+    if (panou.showModal) { try { panou.showModal(); return; } catch(e){} }
+    panou.setAttribute("open","");          // browsere vechi: tot se vede
+  }
+  document.getElementById("lgb").addEventListener("click", deschidePanoul);
+  document.getElementById("lpx").addEventListener("click", function(){ panou.close(); });
+  panou.addEventListener("click", function(ev){     // atingere in afara ferestrei
+    if (ev.target === panou) panou.close();
+  });
   function remember(){ try{ sessionStorage.setItem(SWKEY,"1"); }catch(e){} }
+  // Pleaca spre alta limba, dar lasa intai frunzele sa cada o clipa.
+  // Daca omul vrea tab nou (Ctrl, Cmd, Shift, rotita) nu ne bagam deloc,
+  // si daca a cerut miscare redusa sarim peste tot ritualul.
+  function plecCuFrunze(ev, unde){
+    if (!unde || unde.charAt(0) === "#") return;
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
+    if (!window.__frunze) return;
+    ev.preventDefault();
+    try { panou.close(); } catch(e){}
+    window.__frunze(16, false);
+    setTimeout(function(){ location.href = unde; }, 280);
+  }
   // Bara nu dispare niciodata. Cand n-avem nicio limba de propus, arata globul
   // cu "alege alta limba" si deschide lista cu toate — asa spaniolul cu telefonul
   // pe engleza, aflat in Londra, isi gaseste limba fara sa caute pana jos.
@@ -396,11 +547,10 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
     document.getElementById("swt").textContent = "Andere Sprache wählen";
     el.setAttribute("href","#");
     el.classList.add("on");
-    el.addEventListener("click", function(ev){
-      ev.preventDefault();
-      if (sel.showPicker) { try { sel.showPicker(); return; } catch(e){} }
-      sel.scrollIntoView({block:"center"}); sel.focus();
-    });
+    el.addEventListener("click", deschidePanoul);
+    // bara deschide chiar ea lista: pe ecran lat selectorul de jos devine
+    // de prisos si CSS-ul il ascunde pe baza acestei clase
+    document.body.classList.add("bara-lista");
     barDone = true;
   }
   var already=false; try{ already = sessionStorage.getItem(SWKEY)==="1"; }catch(e){}
@@ -503,16 +653,28 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
   if (matchMedia("(prefers-reduced-motion: no-preference)").matches){
     var F=["M50 3c3 10 5 18 9 24 5-2 10-5 14-9-1 7-2 13-4 19 7-1 14-3 21-6-4 6-9 11-14 15 5 3 11 5 17 6-7 4-14 7-21 8 3 5 6 10 10 14-8 0-15-1-22-4 0 6 1 12 3 18-6-4-11-8-15-13-2 8-3 16-3 24h-4c0-8-1-16-3-24-4 5-9 9-15 13 2-6 3-12 3-18-7 3-14 4-22 4 4-4 7-9 10-14-7-1-14-4-21-8 6-1 12-3 17-6-5-4-10-9-14-15 7 3 14 5 21 6-2-6-3-12-4-19 4 4 9 7 14 9 4-6 6-14 9-24z",
              "M50 2c26 20 38 50 2 95-1 1-3 1-4 0C12 52 24 22 50 2z"];
-    var C=["#F67F2C","#BA2A1C","#E8A33C","#D1552A"], f=document.getElementById("fall");
+    var C=["#F67F2C","#BA2A1C","#E8A33C","#D1552A"];
     function R(a,b){ return a+Math.random()*(b-a); }
-    for (var k=0;k<24;k++){
+    // Stratul se sterge dupa intrare, deci cand il cerem din nou (la schimbarea
+    // limbii) il facem la loc.
+    function stratul(){
+      var f=document.getElementById("fall");
+      if (!f){ f=document.createElement("div"); f.id="fall";
+               f.setAttribute("aria-hidden","true"); document.body.appendChild(f); }
+      return f;
+    }
+    window.__frunze = function(cate, dinMijloc){
+      var f=stratul();
+      for (var k=0;k<cate;k++) f.appendChild(oFrunza(k, dinMijloc));
+    };
+    function oFrunza(k, dinMijloc){
       var s=document.createElement("span"); s.className="lf";
       // una din trei e mai mare = mai aproape de ochi, deci cade mai repede
       var big = (k % 3 === 0);
       var dur = big ? R(2.6,3.6) : R(3.4,5.2);
       // primele 8 pornesc din MIJLOCUL caderii (intarziere negativa), ca ecranul
       // sa fie deja plin de frunze din primul cadru, nu gol.
-      var del = (k < 8) ? -R(.28,.78)*dur : R(0,1.4);
+      var del = (dinMijloc && k < 8) ? -R(.28,.78)*dur : R(0,1.4);
       s.style.cssText = "--l:"+R(1,95).toFixed(1)+"%;"
         + "--w:"+(big ? R(24,38) : R(12,22)).toFixed(0)+"px;"
         + "--d:"+dur.toFixed(2)+"s;--t:"+del.toFixed(2)+"s;"
@@ -520,9 +682,15 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
         + "--r0:"+R(-30,30).toFixed(0)+"deg;--r1:"+R(40,160).toFixed(0)+"deg;";
       s.innerHTML = '<svg viewBox="0 0 100 100" fill="'+C[(Math.random()*4)|0]+'"><path d="'
                   + F[(Math.random()*2)|0] + '"/></svg>';
-      f.appendChild(s);
+      return s;
     }
-    setTimeout(function(){ if (f.parentNode) f.parentNode.removeChild(f); }, 10000);
+    // frunzele de intrare: pornesc din mijlocul caderii, ca ecranul sa fie
+    // plin din primul cadru
+    window.__frunze(24, true);
+    setTimeout(function(){
+      var f=document.getElementById("fall");
+      if (f && f.parentNode) f.parentNode.removeChild(f);
+    }, 10000);
   }
 
   // grila de litere, ca intr-un word search
@@ -531,16 +699,35 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
   for(var i=0;i<cols*rows;i++) out+="<span>"+AB[(Math.random()*26)|0]+"</span>";
   g.innerHTML=out;
 
-  sel.addEventListener("change",function(e){
+  // orice limba aleasa din panou e tinuta minte, ca bara sa ramana pe
+  // "alege alta limba" si omul sa se poata intoarce oricand.
+  // Tot aici pornim frunzele: acopera clipa in care pagina noua se incarca,
+  // mai ales la araba, unde tot ecranul se intoarce de la dreapta la stanga.
+  panou.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest(".lbi");
+    if (!a) return;
     remember();
-    location.href = "/" + e.target.value + "/";
+    plecCuFrunze(ev, a.getAttribute("href"));
   });
+
+  // Raza de lumina de pe butoane isi ia pozitia din cursor. Un singur
+  // ascultator pe document, nu cate unul pe fiecare buton. Fara el totul
+  // merge mai departe, doar ca raza ramane in mijloc.
+  if (matchMedia("(hover:hover)").matches){
+    document.addEventListener("pointermove", function(ev){
+      var t = ev.target.closest && ev.target.closest(".pill,.row,.lbi");
+      if (!t) return;
+      var r = t.getBoundingClientRect();
+      t.style.setProperty("--mx", (ev.clientX - r.left) + "px");
+      t.style.setProperty("--my", (ev.clientY - r.top) + "px");
+    }, {passive:true});
+  }
 
   var btn=document.getElementById("sh"), tst=document.getElementById("tst");
   function toast(t){ tst.textContent=t; tst.classList.add("on");
                      setTimeout(function(){tst.classList.remove("on")},2200); }
   btn.addEventListener("click", function(){
-    var data={ title:"Ancestral Mark Editorial", text:"Ich habe an dich gedacht — ich glaube, die gefallen dir.", url:location.href };
+    var data={ title:"Ancestral Mark Editorial", text:"Nimm die Herausforderung an — kein Akku, kein Netz, nur Ruhe.", url:location.href };
     if (navigator.share) {                       // telefon: fereastra nativa
       navigator.share(data).catch(function(){});
     } else if (navigator.clipboard) {            // desktop: copiaza linkul
