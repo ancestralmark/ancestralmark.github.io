@@ -10,8 +10,8 @@
 <link rel="icon" href="/_icons/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="/_icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta property="og:title" content="One Book. A Pencil. No Battery. No Signal.">
-<meta property="og:description" content="Thoughtfully crafted puzzle books for a moment away from screens. Unplug, unwind, and enjoy. Find your language.">
+<meta property="og:title" content="Find vores opgavebøger: din næste gode udfordring.">
+<meta property="og:description" content="Tag en blyant, og giv dig selv et roligt øjeblik — alene eller med familien. Genfind forbindelsen.">
 <meta property="og:url" content="https://ancestralmark.github.io/da/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ancestral Mark Editorial">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="https://ancestralmark.github.io/_img/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="One Book. A Pencil. No Battery. No Signal.">
+<meta property="og:image:alt" content="Find vores opgavebøger: din næste gode udfordring.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="One Book. A Pencil. No Battery. No Signal.">
-<meta name="twitter:description" content="Thoughtfully crafted puzzle books for a moment away from screens. Unplug, unwind, and enjoy. Find your language.">
+<meta name="twitter:title" content="Find vores opgavebøger: din næste gode udfordring.">
+<meta name="twitter:description" content="Tag en blyant, og giv dig selv et roligt øjeblik — alene eller med familien. Genfind forbindelsen.">
 <meta name="twitter:image" content="https://ancestralmark.github.io/_img/share.jpg">
 <!-- O singura culoare de bara. Doua etichete theme-color fara media query
      se bat intre ele si browserul o foloseste doar pe ultima. -->
@@ -130,9 +130,11 @@ body{
 /* DE LA DREAPTA LA STANGA (araba). Asezarea se intoarce singura din atributul
    dir="rtl" pus pe eticheta html: randurile isi muta pictograma la dreapta,
    textul se aliniaza la dreapta, iar pe ecranele late zona fixa trece in
-   partea dreapta. Doua lucruri nu se intorc singure, si le intoarcem noi:
-   sageata de la capatul randului si fontul, fiindcă Baloo n-are litere arabe. */
-[dir="rtl"] .go{display:inline-block;transform:scaleX(-1)}
+   partea dreapta. Sageata NU se intoarce de mana: semnul › e din familia celor
+   pe care Unicode le oglindeste singur in text arab. Daca il mai rasuceam noi
+   o data cu scaleX(-1), cele doua rasuciri se anulau si sageata ramanea cu
+   varful spre dreapta, in loc de stanga. Singurul lucru pe care il schimbam
+   aici e fontul, fiindca Baloo n-are litere arabe. */
 [dir="rtl"] body,[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] .tt{
   font-family:"Noto Kufi Arabic",Nunito,sans-serif}
 [dir="rtl"] .slogan{max-width:23rem}
@@ -155,7 +157,9 @@ h1{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.8rem;
 .tt{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.12rem;
   line-height:1.2;display:block}
 .ss{font-size:.92rem;line-height:1.3;display:block;margin-top:.06rem;opacity:.86}
-.go{margin-left:auto;font-size:1.5rem;line-height:1;opacity:.5}
+/* margin-inline-start: in engleza impinge sageata la dreapta, in araba la
+   stanga. Cu margin-left simplu, in araba ramanea lipita de text, in mijloc. */
+.go{margin-inline-start:auto;font-size:1.5rem;line-height:1;opacity:.5}
 .shop-main,.shop-first{background:var(--orange);color:var(--onorange)}
 /* paginile unde Etsy e sus: butonul Amazon ramane, dar linistit */
 .shop-main.shop-quiet{background:rgba(170,209,237,.07);color:var(--cream);
@@ -168,7 +172,7 @@ h2{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.05rem;
 ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 .row{background:rgba(170,209,237,.20);color:var(--cream);
   border:1px solid rgba(170,209,237,.30);
-  padding:.66rem .85rem;min-height:3.4rem;backdrop-filter:blur(2px)}
+  padding:.66rem .85rem;min-height:3.4rem}
 .row img{width:2.2rem;height:2.2rem}
 .row .tt{font-size:1.04rem}
 .row .ss{font-size:.88rem}
@@ -260,38 +264,72 @@ footer{margin-top:1.9rem;padding-top:1.3rem;
    pe ecrane tactile nu exista cursor, iar daca am lasa hover-ul
    liber ar ramane agatat pe ce ai atins ultima data.
    --------------------------------------------------------------- */
-.pill,.row,.lbi,.share,.langbtn,.swap{position:relative;
-  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s ease,
-             border-color .22s ease, background-color .22s ease}
-.pill::after,.row::after,.lbi::after{content:"";position:absolute;inset:0;
-  border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .26s ease;
-  background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
-             rgba(255,255,255,.28), rgba(255,255,255,.07) 42%, transparent 68%)}
-/* butonul secundar e sticla si el: la hover se incetoseaza mai tare */
-.shop-alt{backdrop-filter:blur(8px) saturate(1.2);
-  -webkit-backdrop-filter:blur(8px) saturate(1.2);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+/* Un singur limbaj pentru toate butoanele: la atingere se deschid putin,
+   uniform, si atat. Fara ridicare, fara raza care urmareste cursorul, fara
+   backdrop-filter. Motivul nu e estetic, e de viteza si de predictibilitate:
+   o schimbare de culoare se deseneaza instantaneu, oriunde si pe orice
+   telefon, in timp ce miscarea si incetosarea cer recalculari la fiecare
+   cadru. Si, fiindca nimic nu se misca, nu are ce ramane agatat dupa clic.
 
+   Aceeasi nuanta slujeste si ca apasare: pe ecran tactil nu exista cursor,
+   deci :active e singurul semn ca atingerea a fost inregistrata. */
+.pill,.row,.lbi,.share,.langbtn,.swap{position:relative;
+  transition:background-color .12s ease, border-color .12s ease,
+             box-shadow .12s ease, filter .12s ease}
+.shop-alt{box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+
+/* Magazinele primesc in plus un inel de gheata, in albastrul palmei.
+   Pe cel portocaliu inelul e tot ce se schimba: fundalul e deja plin de
+   culoare, iar daca l-am inlocui cu albastru butonul s-ar stinge exact in
+   clipa in care omul e cel mai aproape sa-l apese. Pe cele inchise inelul
+   vine peste deschiderea de nuanta, fiindca ele pot face amandoua. */
 @media (hover:hover){
-  .pill:hover,.row:hover,.lbi:hover{transform:translateY(-3px);
-    box-shadow:0 12px 28px rgba(0,0,0,.5)}
-  .pill:hover::after,.row:hover::after,.lbi:hover::after{opacity:1}
-  .shop-alt:hover,.row:hover,.lbi:hover{border-color:rgba(255,255,255,.55)}
-  .shop-alt:hover{backdrop-filter:blur(15px) saturate(1.45);
-    -webkit-backdrop-filter:blur(15px) saturate(1.45)}
-  .row:hover{background:rgba(170,209,237,.28)}
-  .share:hover,.swap:hover{background:rgba(170,209,237,.22)}
+  .row:hover{background:rgba(170,209,237,.28);border-color:rgba(170,209,237,.62)}
+  .lbi:hover{background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.34)}
+  /* bara si butonul de share pornesc de la un fundal mai stins decat
+     randurile, deci au nevoie de un salt mai mare ca sa se simta la fel */
+  .share:hover,.swap:hover{background:rgba(170,209,237,.27);
+    border-color:rgba(170,209,237,.68)}
   .langbtn:hover{background:rgba(170,209,237,.13)}
   .lbx:hover{opacity:1}
+  .shop-main:hover,.shop-first:hover,.lbi[aria-current]:hover{
+    box-shadow:inset 0 0 0 2px var(--blue), 0 0 18px rgba(170,209,237,.45)}
+  .shop-alt:hover{background:rgba(170,209,237,.16);
+    border-color:rgba(170,209,237,.75);
+    box-shadow:inset 0 0 0 1px rgba(170,209,237,.55), 0 0 16px rgba(170,209,237,.32)}
 }
-/* pe telefon nu exista cursor: singurul semn ca ai atins e apasarea */
-.pill:active,.row:active,.lbi:active,.share:active,.langbtn:active,.swap:active{
-  transform:translateY(0) scale(.985)}
+/* apasarea: acelasi semn, dar pe orice dispozitiv */
+.row:active{background:rgba(170,209,237,.34);border-color:rgba(170,209,237,.70)}
+.lbi:active{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.42)}
+.share:active,.swap:active{background:rgba(170,209,237,.34);
+  border-color:rgba(170,209,237,.82)}
+.langbtn:active{background:rgba(170,209,237,.18)}
+.shop-main:active,.shop-first:active,.lbi[aria-current]:active{
+  box-shadow:inset 0 0 0 3px var(--blue), 0 0 24px rgba(170,209,237,.6)}
+.shop-alt:active{background:rgba(170,209,237,.22);border-color:rgba(170,209,237,.9);
+  box-shadow:inset 0 0 0 2px rgba(170,209,237,.75), 0 0 20px rgba(170,209,237,.45)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
   white-space:nowrap}                      /* ramane pentru cititoarele de ecran */
 .lang select{font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:.55rem;
   border:1px solid rgba(170,209,237,.45);background:#5A2626;color:var(--cream);cursor:pointer}
-small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.85rem}
+/* Subsolul: doua randuri. Randul legal e mereu in engleza si mereu de la
+   stanga la dreapta — altfel, pe pagina araba, punctul final sare in capat. */
+small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.85rem;
+  line-height:1.5}
+/* pe ecran ingust randul se rupe in doua. "balance" imparte cuvintele egal
+   intre randuri, in loc sa lase un rest scurt si singur jos. */
+small{text-wrap:balance}
+small+small{margin-top:.2rem;opacity:.58}
+small .hrt{color:#E8614A;font-size:.86rem;line-height:1;vertical-align:-.02em}
+/* bara despartitoare: stinsa si cu aer in jur, ca sa nu taie randul in doua */
+small .sep{opacity:.42;padding:0 .3rem}
+/* Pe telefon randul oricum nu incape si se rupe in doua. Atunci bara nu mai
+   are ce desparti — randurile o fac singure — asa ca o scoatem si asezam
+   fiecare jumatate pe randul ei, in loc s-o lasam atarnata la capat. */
+@media (max-width:719px){
+  small .sep{display:none}
+  small .f1,small .f2{display:block}
+}
 .toast{position:fixed;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:9;
   background:var(--cream);color:var(--bg);font-weight:600;font-size:.95rem;
   padding:.65rem 1.1rem;border-radius:.6rem;opacity:0;pointer-events:none}
@@ -484,13 +522,14 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
   </ul>
 
   <footer>
-    <button class="share" type="button" id="sh"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5V3.5m0 0L8.6 6.9M12 3.5l3.4 3.4"/><path d="M5.5 12v7a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-7"/></svg><span>Vis det til en ven</span></button>
+    <button class="share" type="button" id="sh"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5V3.5m0 0L8.6 6.9M12 3.5l3.4 3.4"/><path d="M5.5 12v7a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-7"/></svg><span>Del det med en ven</span></button>
     <p class="lang"><button type="button" class="langbtn" id="lgb" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/>
         <path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18"/></svg>
       <span>Dansk</span>
       <span class="go" aria-hidden="true">&rsaquo;</span></button></p>
-    <small>&copy; Ancestral Mark Editorial</small>
+    <small dir="ltr">Copyright &copy; 2026 Ancestral Mark Editorial. All rights reserved.</small>
+    <small dir="ltr"><span class="f1">Independent creator, publisher</span><span class="sep">|</span><span class="f2">thoughtful and made&nbsp;with&nbsp;<span class="hrt">&#9829;</span></span></small>
   </footer>
   </div>
 </main>
@@ -520,10 +559,23 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
   }
   var barDone=false, SWKEY="amv_lang_switched";
   var panou=document.getElementById("lp");
+  // Limba in care esti sta oriunde in lista alfabetica: romana e a 17-a,
+  // araba a 25-a. Fara randurile de mai jos, omul deschide panoul si nu-si
+  // vede limba curenta, deci nu stie unde se afla. O aducem la mijloc.
+  function aratLimbaCurenta(){
+    var cur = panou.querySelector(".lbi[aria-current]");
+    var g = panou.querySelector(".lbgrid");
+    if (!cur || !g) return;
+    var rc = cur.getBoundingClientRect(), rg = g.getBoundingClientRect();
+    g.scrollTop += (rc.top - rg.top) - (g.clientHeight - cur.offsetHeight) / 2;
+  }
   function deschidePanoul(ev){
     if (ev) ev.preventDefault();
-    if (panou.showModal) { try { panou.showModal(); return; } catch(e){} }
+    if (panou.showModal) {
+      try { panou.showModal(); aratLimbaCurenta(); return; } catch(e){}
+    }
     panou.setAttribute("open","");          // browsere vechi: tot se vede
+    aratLimbaCurenta();
   }
   document.getElementById("lgb").addEventListener("click", deschidePanoul);
   document.getElementById("lpx").addEventListener("click", function(){ panou.close(); });
@@ -613,6 +665,24 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
           var z = zs[d2];
           if (z.charAt(z.length-1) === "/" ? tz.indexOf(z) === 0 : tz === z) { hit = PICK[c2]; break; }
         }
+      }
+    }
+    // Ceasul n-a avut ce propune? Atunci ne uitam la limba telefonului.
+    // Un german care si-a trecut pagina pe engleza, aflat la Londra, are tot
+    // cont pe amazon.de: regula "none" il oprea odata cu britanicul, pentru
+    // care oprirea e corecta. Umplem DOAR un loc ramas gol — ce a hotarat
+    // ceasul nu se atinge niciodata.
+    if (!hit || hit.none) {
+      var LS = {"ca": {"url": "https://www.amazon.es/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.es", "sub": "Alle vores bøger"}, "uk": {"url": "https://www.amazon.co.uk/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.co.uk", "sub": "Alle vores bøger"}, "en": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.com", "sub": "Alle vores bøger"}, "es": {"url": "https://www.amazon.es/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.es", "sub": "Alle vores bøger"}, "fr": {"url": "https://www.amazon.fr/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.fr", "sub": "Alle vores bøger"}, "hr": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.it", "sub": "Alle vores bøger"}, "it": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.it", "sub": "Alle vores bøger"}, "lt": {"url": "https://www.amazon.pl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.pl", "sub": "Alle vores bøger"}, "nl": {"url": "https://www.amazon.nl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.nl", "sub": "Alle vores bøger"}, "pl": {"url": "https://www.amazon.pl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.pl", "sub": "Alle vores bøger"}, "pt": {"url": "https://www.amazon.com.br/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.com.br", "sub": "Alle vores bøger"}, "sl": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.it", "sub": "Alle vores bøger"}, "sv": {"url": "https://www.amazon.se/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Også på Amazon.se", "sub": "Alle vores bøger"}};
+      for (var e2 = 0; e2 < langs.length; e2++) {
+        var intreg = String(langs[e2]).toLowerCase();
+        var baza = intreg.split("-")[0];
+        if (baza === "nb" || baza === "nn") baza = "no";
+        if (baza === "br") baza = "pt";
+        // "en-GB" inseamna cont pe amazon.co.uk, nu pe .com. Restul paginii
+        // stie asta de mult; aici trebuie spus din nou.
+        if (baza === "en") baza = (intreg === "en-gb") ? "uk" : "en";
+        if (LS[baza]) { hit = LS[baza]; break; }
       }
     }
     // o regula "none" inseamna: opreste cautarea si nu schimba nimic. Asa
@@ -714,18 +784,22 @@ small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.8
     plecCuFrunze(ev, a.getAttribute("href"));
   });
 
-  // Raza de lumina de pe butoane isi ia pozitia din cursor. Un singur
-  // ascultator pe document, nu cate unul pe fiecare buton. Fara el totul
-  // merge mai departe, doar ca raza ramane in mijloc.
-  if (matchMedia("(hover:hover)").matches){
-    document.addEventListener("pointermove", function(ev){
-      var t = ev.target.closest && ev.target.closest(".pill,.row,.lbi");
-      if (!t) return;
-      var r = t.getBoundingClientRect();
-      t.style.setProperty("--mx", (ev.clientX - r.left) + "px");
-      t.style.setProperty("--my", (ev.clientY - r.top) + "px");
-    }, {passive:true});
-  }
+  // Dupa un clic cu mausul sau cu degetul, butonul nu are voie sa ramana
+  // aprins. Linkurile se deschid in tab nou, deci pagina asta ramane in
+  // spate; fara randurile de mai jos butonul apasat pastra inelul de
+  // focalizare si parea inca activ cand omul se intorcea.
+  // ev.detail este 0 cand apasarea a venit de la tastatura: acolo nu ne
+  // atingem de focalizare, altfel cine navigheaza cu Tab isi pierde locul.
+  document.addEventListener("click", function(ev){
+    var t = ev.target.closest && ev.target.closest(
+      ".pill,.row,.lbi,.share,.swap,.langbtn");
+    if (t && ev.detail > 0 && t.blur) setTimeout(function(){ t.blur(); }, 0);
+  });
+  // Cand omul se intoarce din celalalt tab, nimic nu ramane apasat.
+  window.addEventListener("pageshow", function(){
+    var a = document.activeElement;
+    if (a && a !== document.body && a.blur) a.blur();
+  });
 
   var btn=document.getElementById("sh"), tst=document.getElementById("tst");
   function toast(t){ tst.textContent=t; tst.classList.add("on");
