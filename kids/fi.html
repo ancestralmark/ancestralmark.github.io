@@ -101,7 +101,7 @@ body{
      se retrage. "lvh" inseamna inaltimea ecranului CU barele ascunse, deci
      fundalul acopera si zona care apare abia atunci. */
   height:100vh;height:100lvh;
-  background:url("bg.jpg") no-repeat center center;background-size:cover}
+  background:url("bg-tall.jpg") no-repeat center center;background-size:cover}
 
 /* voal spre partea de jos: acolo imaginea are frunze deschise si textul
    nu s-ar mai citi. sta SUB continut, dar rama de frunze (z-index 3) ramane peste. */
@@ -507,28 +507,25 @@ footer{border-top-color:transparent}
    3. la capatul paginii, derulandu-se cu ea: ceilalti sapte prieteni, intregi,
       fara butoane peste ei. ---- */
 @media not (min-aspect-ratio:4/5){
-  .leaf{background-size:100% auto;background-position:center top}
-  .leaf.t{background-image:url("bg-tall.jpg")}
+  .leaf{background-image:url("bg-tall.jpg");background-size:100% auto;
+    background-position:center top}
+  /* coroana cu cei trei prieteni: pe loc, deasupra continutului */
   .leaf.b{display:block;top:0;height:150vw;z-index:3;
-    --rama:linear-gradient(to bottom,#000 0,#000 27vw,transparent 43vw);
+    --rama:linear-gradient(to bottom,#000 0,#000 23vw,transparent 35vw);
     -webkit-mask-image:var(--rama);mask-image:var(--rama)}
-  /* prietenii de jos stau si ei pe loc, DEASUPRA continutului, ca si coroana:
-     pagina se deruleaza doar in fereastra dintre ei */
-  .sheet{padding-top:39vw;padding-bottom:66vw}
-  /* fereastra de derulare e mica: antetul se strange, ca butonul galben
-     sa incapa intreg pe primul ecran */
-  .hand{width:6.2rem;margin-bottom:.4rem}
+  .sheet{padding-top:31vw;padding-bottom:37vw}
+  .hand{width:5.8rem;margin-bottom:.35rem}
   h1{margin-bottom:.35rem}
-  .slogan{margin-bottom:1rem}
+  .slogan{margin-bottom:.9rem}
   .swap{margin-bottom:.9rem}
   /* cele doua scene opresc atingerile: altfel un deget pus pe un personaj ar
      apasa butonul ascuns dedesubt */
-  .ktop{display:block;position:fixed;left:0;right:0;top:0;height:27vw;z-index:4}
-  .kfoot{display:block;position:fixed;left:0;right:0;bottom:0;z-index:3;height:80vw;
+  .ktop{display:block;position:fixed;left:0;right:0;top:0;height:22vw;z-index:4}
+  /* cei sapte prieteni de jos: un singur rand, de la o margine la alta, pe loc.
+     Topirea de sus e in poza insasi. */
+  .kfoot{display:block;position:fixed;left:0;right:0;bottom:0;z-index:3;height:42vw;
     pointer-events:auto;
-    background:url("bg.jpg") no-repeat center bottom;background-size:100% auto;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 24%);
-            mask-image:linear-gradient(to bottom,transparent 0,#000 24%)}
+    background:url("bg-bottom.webp") no-repeat center bottom/100% auto}
 }
 @media (min-aspect-ratio:4/5){.kfoot,.ktop{display:none}}
 
@@ -548,12 +545,10 @@ footer{border-top-color:transparent}
   .sheet::-webkit-scrollbar{width:0;height:0}
   .sheet::before{content:"";position:fixed;z-index:-1;top:0;bottom:0;left:50%;
     width:calc(max(21rem,31vw) + 12rem);max-width:41rem;transform:translateX(-50%);
-    background:rgba(22,62,74,.42);pointer-events:none;
-    -webkit-mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),
-                       linear-gradient(to bottom,transparent 14%,#000 46%);
-            mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),
-                       linear-gradient(to bottom,transparent 14%,#000 46%);
-    -webkit-mask-composite:source-in;mask-composite:intersect}
+    pointer-events:none;
+    background:linear-gradient(to right,transparent,rgba(22,62,74,.42) 24%,rgba(22,62,74,.42) 76%,transparent);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 14%,#000 46%);
+            mask-image:linear-gradient(to bottom,transparent 14%,#000 46%)}
   .head{text-align:center}
   .hand{width:7.5rem;max-width:none;margin:0 auto .7rem}
   .head>.swap{margin-bottom:1.1rem}
@@ -576,7 +571,7 @@ footer{border-top-color:transparent}
   i.onload = go; i.onerror = go;
   /* aceeasi conditie ca in CSS, ca sa nu descarce poza pe care n-o foloseste */
   i.src = matchMedia("(min-aspect-ratio: 4/5)").matches
-        ? "bg-wide.jpg" : "bg.jpg";
+        ? "bg-wide.jpg" : "bg-tall.jpg";
   setTimeout(go, 2600);
 })(document);
 </script>
