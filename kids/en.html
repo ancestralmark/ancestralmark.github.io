@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ancestral Mark Kids</title>
+<meta name="description" content="Colorful puzzles, mazes and word games for curious little minds.">
+<link rel="canonical" href="https://ancestralmark.github.io/kids/en">
+<link rel="icon" href="/kids/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/kids/favicon-16.png" sizes="16x16" type="image/png">
+<!-- Iconite mari declarate explicit. Fereastra de trimitere de pe telefon si
+     casutele de previzualizare aleg singure o iconita, si prefera una mare;
+     daca gasesc doar 16 si 32 de pixeli, multe pun semnul lor generic. -->
+<link rel="icon" href="/kids/icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="/kids/icon-512.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/kids/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/kids/apple-touch-icon.png">
+<link rel="manifest" href="/kids/site.webmanifest">
+<meta property="og:title" content="Find our puzzle books: your next positive challenge.">
+<meta property="og:description" content="Take a pencil, give yourself a peaceful moment — alone or with the family. Reconnect.">
+<meta property="og:url" content="https://ancestralmark.github.io/kids/en">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ancestral Mark Kids">
+<meta property="og:locale" content="en_US">
+<!-- poza care apare in WhatsApp, Messenger, Facebook. Fara ea linkul arata
+     ca un link gol si lumea se fereste sa-l deschida. -->
+<meta property="og:image" content="https://ancestralmark.github.io/kids/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Find our puzzle books: your next positive challenge.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Find our puzzle books: your next positive challenge.">
+<meta name="twitter:description" content="Take a pencil, give yourself a peaceful moment — alone or with the family. Reconnect.">
+<meta name="twitter:image" content="https://ancestralmark.github.io/kids/share.jpg">
+<!-- O singura culoare de bara. Doua etichete theme-color fara media query
+     se bat intre ele si browserul o foloseste doar pe ultima. -->
+<meta name="theme-color" content="#37697A">
+
+<style>/* FONTURILE STAU PE SITE-UL NOSTRU, nu la Google.
+   Doua motive. Unul legal: cand pagina cere un font de la Google, browserul
+   trimite acolo adresa de internet a cititorului. Un tribunal german a
+   amendat in 2022 un site tocmai pentru asta, iar publicul nostru e in mare
+   parte european. Asa, nimeni din afara nu afla cine ne citeste.
+   Unul de viteza: nu mai sunt doua legaturi noi de deschis catre alt server.
+   Browserul descarca doar fonturile pe care chiar le foloseste pagina, deci
+   cel arab se ia numai pe pagina araba. */
+@font-face{font-family:"Nunito";font-weight:400;font-style:normal;font-display:swap;
+  src:url("../_fonts/nunito-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Nunito";font-weight:600;font-style:normal;font-display:swap;
+  src:url("../_fonts/nunito-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Baloo 2";font-weight:600;font-style:normal;font-display:swap;
+  src:url("../_fonts/baloo-2-latin-600-normal.woff2") format("woff2")}
+/* varianta extinsa: ă ș ț ł ő ž si celelalte litere cu semne, fara care
+   romana, poloneza, ceha, maghiara si sarba ar cadea pe fontul sistemului */
+@font-face{font-family:"Nunito";font-weight:400;font-style:normal;font-display:swap;
+  src:url("../_fonts/nunito-latin-ext-400-normal.woff2") format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Nunito";font-weight:600;font-style:normal;font-display:swap;
+  src:url("../_fonts/nunito-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Baloo 2";font-weight:600;font-style:normal;font-display:swap;
+  src:url("../_fonts/baloo-2-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Noto Kufi Arabic";font-weight:400;font-style:normal;font-display:swap;
+  src:url("../_fonts/noto-kufi-arabic-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Noto Kufi Arabic";font-weight:600;font-style:normal;font-display:swap;
+  src:url("../_fonts/noto-kufi-arabic-arabic-600-normal.woff2") format("woff2")}
+
+
+:root{
+  --bg:#2F6373; --deep:#37697A; --blue:#AAD1ED; --orange:#FFC93C; --red:#FF5D73;
+  --cream:#F5EDE6; --onblue:#2F6373; --onorange:#17333B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+/* Oprim saltul elastic de la capetele paginii. Pe iPhone, tragerea peste
+   margine ridica tot continutul si lasa o taietura deasupra barei de adresa;
+   fara el pagina sta pe loc. Opreste si trasul de reimprospatare, ceea ce aici
+   e bine: n-avem ce reimprospata. */
+html,body{overscroll-behavior:none}
+body{
+  margin:0;
+  /* --deep = tonul exact din spatele mainii in imagine. se vede doar in
+     prima secunda, pana ajunge poza, si asa nu se simte nicio treapta. */
+  background:var(--deep);color:var(--cream);
+  font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;
+}
+/* grila de litere — semnatura brandului, in spatele a tot */
+.grid{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  display:grid;grid-template-columns:repeat(auto-fill,2.15rem);
+  align-content:start;justify-content:center;
+  font-family:Nunito,sans-serif;font-weight:600;font-size:1.02rem;
+  line-height:2.15rem;text-align:center;color:var(--cream);opacity:.06;
+  user-select:none}
+
+/* fundalul: imaginea intreaga, in spate */
+.leaf{position:fixed;left:0;right:0;top:0;z-index:0;pointer-events:none;
+  /* pe iPhone bara de adrese se ascunde la derulare si ecranul creste. Daca
+     stratul are doar inaltimea de acum, ramane o taietura neagra jos cand bara
+     se retrage. "lvh" inseamna inaltimea ecranului CU barele ascunse, deci
+     fundalul acopera si zona care apare abia atunci. */
+  height:100vh;height:100lvh;
+  background:url("bg.jpg") no-repeat center center;background-size:cover}
+
+/* voal spre partea de jos: acolo imaginea are frunze deschise si textul
+   nu s-ar mai citi. sta SUB continut, dar rama de frunze (z-index 3) ramane peste. */
+.leaf.t::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 34%,#2F637373 54%,
+                             #2F6373CC 74%,#2F6373F2 100%)}
+
+/* acelasi fundal, dar DOAR rama de frunze — banda de sus si cea de jos —
+   DEASUPRA continutului. continutul trece pe sub ele, nu peste. */
+.leaf.b{display:block;left:0;right:0;top:0;height:100vh;height:100lvh;z-index:3;        /* acelasi cadru ca stratul de baza */
+  --rama:linear-gradient(to bottom,#000 0 10%,transparent 19% 95.5%,rgba(0,0,0,.5) 100%);
+  -webkit-mask-image:var(--rama); mask-image:var(--rama)}
+
+/* ECRANE LATE (laptop, iMac, tableta sau telefon pe orizontala).
+   Primesc poza lor, orizontala, cu frunze pe toata latimea. Browserul o descarca
+   DOAR daca ecranul e lat — pe telefon vertical nu se atinge de ea. */
+@media (min-aspect-ratio:4/5){
+  .leaf{background-image:url("bg-wide.jpg")}
+}
+
+/* ECRANE MARI (tableta, laptop, monitor). Totul e in rem, deci o singura cifra
+   mareste proportional scrisul, butoanele si coloana. Conditia cere ecran mare
+   in AMBELE directii: telefonul culcat are 430px inaltime si ramane cum e. */
+@media (min-width:720px) and (min-height:700px){
+  html{font-size:18.5px}
+}
+/* monitoarele mari: inca o treapta, altfel totul pare mic in mijlocul lor */
+@media (min-width:1600px) and (min-height:900px){
+  html{font-size:21px}
+}
+
+/* DE LA DREAPTA LA STANGA (araba). Asezarea se intoarce singura din atributul
+   dir="rtl" pus pe eticheta html: randurile isi muta pictograma la dreapta,
+   textul se aliniaza la dreapta, iar pe ecranele late zona fixa trece in
+   partea dreapta. Sageata NU se intoarce de mana: semnul › e din familia celor
+   pe care Unicode le oglindeste singur in text arab. Daca il mai rasuceam noi
+   o data cu scaleX(-1), cele doua rasuciri se anulau si sageata ramanea cu
+   varful spre dreapta, in loc de stanga. Singurul lucru pe care il schimbam
+   aici e fontul, fiindca Baloo n-are litere arabe. */
+[dir="rtl"] body,[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] .tt{
+  font-family:"Noto Kufi Arabic",Nunito,sans-serif}
+[dir="rtl"] .slogan{max-width:23rem}
+
+.sheet{position:relative;z-index:1;max-width:27rem;margin:0 auto;
+  padding:max(18vh,118px) 1.15rem max(13vh,92px)}
+.hand{display:block;width:9.2rem;margin:0 auto .7rem}
+h1{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.8rem;
+  line-height:1.18;text-align:center;color:var(--cream);margin:0 0 .65rem}
+.slogan{text-align:center;color:var(--cream);opacity:.88;font-size:.98rem;
+  line-height:1.45;margin:0 auto 1.8rem;max-width:21rem}
+
+.shops{display:grid;gap:.6rem;margin-bottom:1.7rem}
+.pill[hidden]{display:none}
+.pill,.row{display:flex;align-items:center;gap:.8rem;text-decoration:none;
+  border-radius:.9rem;min-height:3.6rem}
+.pill{padding:.8rem .9rem}
+.pill img,.row img{border-radius:.55rem;flex:none}
+.pill img{width:2.5rem;height:2.5rem}
+.tt{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.12rem;
+  line-height:1.2;display:block}
+.ss{font-size:.92rem;line-height:1.3;display:block;margin-top:.06rem;opacity:.86}
+/* margin-inline-start: in engleza impinge sageata la dreapta, in araba la
+   stanga. Cu margin-left simplu, in araba ramanea lipita de text, in mijloc. */
+.go{margin-inline-start:auto;font-size:1.5rem;line-height:1;opacity:.5}
+.shop-main,.shop-first{background:var(--orange);color:var(--onorange)}
+/* paginile unde Etsy e sus: butonul Amazon ramane, dar linistit */
+.shop-main.shop-quiet{background:rgba(170,209,237,.07);color:var(--cream);
+  border:1px solid rgba(170,209,237,.22)}
+.shop-alt{background:rgba(170,209,237,.07);color:var(--cream);
+  border:2px solid rgba(170,209,237,.42)}
+
+h2{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.05rem;
+  color:var(--blue);margin:0 0 .7rem;text-align:center}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.row{background:rgba(170,209,237,.20);color:var(--cream);
+  border:1px solid rgba(170,209,237,.30);
+  padding:.66rem .85rem;min-height:3.4rem}
+.row img{width:2.2rem;height:2.2rem}
+.row .tt{font-size:1.04rem}
+.row .ss{font-size:.88rem}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+.swap{display:none;align-items:center;gap:.6rem;width:100%;
+  background:rgba(170,209,237,.16);border:1px solid rgba(170,209,237,.34);
+  color:var(--cream);border-radius:.8rem;padding:.7rem .85rem;margin:0 0 1.3rem;
+  font:inherit;font-size:.95rem;text-align:left;text-decoration:none;cursor:pointer}
+.swap.on{display:flex}
+.swap .go{margin-left:auto;font-size:1.3rem;opacity:.7}
+/* acelasi glob ca la selector: oriunde il vezi, e despre limba */
+.swap svg{width:1.2rem;height:1.2rem;flex:none;display:block;fill:none;
+  stroke:var(--cream);stroke-width:1.6;stroke-linecap:round;opacity:.85}
+.swap b{font-weight:600}
+
+footer{margin-top:1.9rem;padding-top:1.3rem;
+  border-top:1px solid rgba(245,237,230,.2);text-align:center}
+.share{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  background:transparent;color:var(--cream);border:2px solid var(--blue);
+  font:inherit;font-weight:600;font-size:1rem;padding:.8rem 1rem;
+  border-radius:.9rem;cursor:pointer;margin-bottom:1.05rem}
+.share svg{width:1.2rem;height:1.2rem;flex:none;display:block;fill:none;
+  stroke:var(--cream);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* globul: se intelege fara sa citesti, oricare ar fi limba paginii */
+.lang{font-size:.92rem;color:var(--blue);margin:0;
+  display:flex;align-items:center;justify-content:center;gap:.5rem}
+.lang label{display:flex;align-items:center;cursor:pointer}
+.lang svg{width:1.25rem;height:1.25rem;display:block;fill:none;
+  stroke:var(--blue);stroke-width:1.6;stroke-linecap:round}
+/* PANOUL DE LIMBI. Inlocuieste lista de sistem, care pe iPhone nu se deschidea
+   la atingere din bara de sus. Acum e o fereastra a noastra, la fel peste tot. */
+.langbtn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+  background:rgba(170,209,237,.07);color:var(--cream);border:1px solid rgba(170,209,237,.22);
+  border-radius:.8rem;padding:.55rem .9rem;font:inherit;font-weight:600;font-size:.95rem}
+.langbtn svg{width:1.15rem;height:1.15rem;fill:none;stroke:var(--blue);stroke-width:1.6}
+.langbtn .go{opacity:.55}
+/* Panoul e o singura piesa de sticla. Rama, colturile si incetosarea stau pe
+   cutia de afara; jumatatile dinauntru n-au nimic al lor. Asa marginea de jos
+   ramane intreaga chiar daca lista dinauntru se stinge. */
+.langbox{padding:0;max-width:min(92vw,33rem);width:100%;
+  border-radius:1.4rem;overflow:hidden;
+  border:1px solid rgba(255,255,255,.20);
+  background:rgba(42,6,8,.34);
+  /* Panoul NU-si mai incetoseaza singur fundalul. Stratul de dedesubt
+     (::backdrop) stinge deja pagina la 80% si o incetoseaza, deci blurul de
+     36px al panoului nu mai avea ce incetosa — masurat, schimba imaginea cu
+     0,5 din 255. In schimb obliga browserul sa recalculeze tot dreptunghiul
+     la FIECARE desenare, deci highlight-ul ramanea in urma cursorului.
+     Umbra e trecuta de pe filter pe box-shadow: aceeasi umbra, dar desenata
+     ca umbra de dreptunghi, nu ca filtru peste tot continutul. */
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),
+             0 26px 58px rgba(0,0,0,.6)}
+/* stingem pagina din spate INAINTE sa o incetoseze panoul, altfel iconitele
+   colorate razbat prin sticla ca niste fantome */
+.langbox::backdrop{background:rgba(10,2,3,.80);backdrop-filter:blur(9px)}
+.langbox>div{background:transparent;border:0;border-radius:0;
+  backdrop-filter:none;box-shadow:none}
+.langbox>.lbtop{padding:1rem 1.15rem .85rem}
+.lbtop{display:flex;align-items:center;justify-content:space-between;
+  position:relative;border-bottom:0}
+/* un fir intre cap si lista, nu o cusatura de doua rame */
+.lbtop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22) 18%,
+             rgba(255,255,255,.22) 82%,transparent)}
+.lbtop b{font-family:"Baloo 2",Nunito,sans-serif;font-weight:600;font-size:1.1rem;color:var(--cream)}
+.lbx{background:none;border:0;color:var(--cream);font-size:1.7rem;line-height:1;
+  cursor:pointer;padding:0 .3rem;opacity:.7}
+.lbgrid{display:grid;gap:.45rem;padding:.85rem;
+  grid-template-columns:1fr 1fr;max-height:min(62vh,29rem);overflow-y:auto;
+  /* cand ajungi la capatul listei, nu se pune pagina din spate in miscare */
+  overscroll-behavior:contain;
+  /* se stinge jos ca sa se vada ca mai e de derulat; atinge doar randurile,
+     nu si marginea panoului, care sta pe cutia de afara */
+  mask-image:linear-gradient(to bottom,#000 calc(100% - 2rem),transparent);
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 2rem),transparent)}
+/* telefon: o singura coloana. tableta si laptop: doua. */
+@media (max-width:30rem){.lbgrid{grid-template-columns:1fr}}
+/* ecrane mari: trei coloane, si intra toate cele 25 fara derulare */
+@media (min-width:1600px){
+  .langbox{max-width:min(88vw,48rem)}
+  .lbgrid{grid-template-columns:1fr 1fr 1fr;max-height:min(70vh,36rem)}
+}
+.lbi{display:block;text-decoration:none;color:var(--cream);border-radius:.75rem;
+  padding:.7rem .8rem;font-size:1rem;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.11)}
+.lbi[aria-current]{background:var(--orange);color:var(--onorange);font-weight:600;
+  box-shadow:0 4px 16px rgba(255,201,60,.35)}
+
+/* ---------------------------------------------------------------
+   RASPUNSUL LA ATINGERE SI LA CURSOR
+   Tot ce se poate apasa primeste o raza de lumina care urmareste
+   cursorul, plus o ridicare scurta. Totul sta sub (hover:hover):
+   pe ecrane tactile nu exista cursor, iar daca am lasa hover-ul
+   liber ar ramane agatat pe ce ai atins ultima data.
+   --------------------------------------------------------------- */
+/* Un singur limbaj pentru toate butoanele: la atingere se deschid putin,
+   uniform, si atat. Fara ridicare, fara raza care urmareste cursorul, fara
+   backdrop-filter. Motivul nu e estetic, e de viteza si de predictibilitate:
+   o schimbare de culoare se deseneaza instantaneu, oriunde si pe orice
+   telefon, in timp ce miscarea si incetosarea cer recalculari la fiecare
+   cadru. Si, fiindca nimic nu se misca, nu are ce ramane agatat dupa clic.
+
+   Aceeasi nuanta slujeste si ca apasare: pe ecran tactil nu exista cursor,
+   deci :active e singurul semn ca atingerea a fost inregistrata. */
+.pill,.row,.lbi,.share,.langbtn,.swap{position:relative;
+  transition:background-color .12s ease, border-color .12s ease,
+             box-shadow .12s ease, filter .12s ease}
+.shop-alt{box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+
+/* Magazinele primesc in plus un inel de gheata, in albastrul palmei.
+   Pe cel portocaliu inelul e tot ce se schimba: fundalul e deja plin de
+   culoare, iar daca l-am inlocui cu albastru butonul s-ar stinge exact in
+   clipa in care omul e cel mai aproape sa-l apese. Pe cele inchise inelul
+   vine peste deschiderea de nuanta, fiindca ele pot face amandoua. */
+@media (hover:hover){
+  .row:hover{background:rgba(170,209,237,.28);border-color:rgba(170,209,237,.62)}
+  .lbi:hover{background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.34)}
+  /* bara si butonul de share pornesc de la un fundal mai stins decat
+     randurile, deci au nevoie de un salt mai mare ca sa se simta la fel */
+  .share:hover,.swap:hover{background:rgba(170,209,237,.27);
+    border-color:rgba(170,209,237,.68)}
+  .langbtn:hover{background:rgba(170,209,237,.13)}
+  .lbx:hover{opacity:1}
+  .shop-main:hover,.shop-first:hover,.lbi[aria-current]:hover{
+    box-shadow:inset 0 0 0 2px var(--blue), 0 0 18px rgba(170,209,237,.45)}
+  .shop-alt:hover{background:rgba(170,209,237,.16);
+    border-color:rgba(170,209,237,.75);
+    box-shadow:inset 0 0 0 1px rgba(170,209,237,.55), 0 0 16px rgba(170,209,237,.32)}
+}
+/* acelasi raspuns pe ecran tactil: clasa .hv e pusa de script sub deget */
+.row.hv{background:rgba(170,209,237,.28);border-color:rgba(170,209,237,.62)}
+.lbi.hv{background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.34)}
+/* bara si butonul de share pornesc de la un fundal mai stins decat
+   randurile, deci au nevoie de un salt mai mare ca sa se simta la fel */
+.share.hv,.swap.hv{background:rgba(170,209,237,.27);
+  border-color:rgba(170,209,237,.68)}
+.langbtn.hv{background:rgba(170,209,237,.13)}
+.lbx.hv{opacity:1}
+.shop-main.hv,.shop-first.hv,.lbi[aria-current].hv{
+  box-shadow:inset 0 0 0 2px var(--blue), 0 0 18px rgba(170,209,237,.45)}
+.shop-alt.hv{background:rgba(170,209,237,.16);
+  border-color:rgba(170,209,237,.75);
+  box-shadow:inset 0 0 0 1px rgba(170,209,237,.55), 0 0 16px rgba(170,209,237,.32)}
+/* apasarea: acelasi semn, dar pe orice dispozitiv */
+.row:active{background:rgba(170,209,237,.34);border-color:rgba(170,209,237,.70)}
+.lbi:active{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.42)}
+.share:active,.swap:active{background:rgba(170,209,237,.34);
+  border-color:rgba(170,209,237,.82)}
+.langbtn:active{background:rgba(170,209,237,.18)}
+.shop-main:active,.shop-first:active,.lbi[aria-current]:active{
+  box-shadow:inset 0 0 0 3px var(--blue), 0 0 24px rgba(170,209,237,.6)}
+.shop-alt:active{background:rgba(170,209,237,.22);border-color:rgba(170,209,237,.9);
+  box-shadow:inset 0 0 0 2px rgba(170,209,237,.75), 0 0 20px rgba(170,209,237,.45)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  white-space:nowrap}                      /* ramane pentru cititoarele de ecran */
+.lang select{font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:.55rem;
+  border:1px solid rgba(170,209,237,.45);background:#3F7585;color:var(--cream);cursor:pointer}
+/* Subsolul: doua randuri. Randul legal e mereu in engleza si mereu de la
+   stanga la dreapta — altfel, pe pagina araba, punctul final sare in capat. */
+small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.85rem;
+  line-height:1.5}
+/* pe ecran ingust randul se rupe in doua. "balance" imparte cuvintele egal
+   intre randuri, in loc sa lase un rest scurt si singur jos. */
+small{text-wrap:balance}
+small+small{margin-top:.2rem;opacity:.58}
+small .hrt{color:#E8614A;font-size:.86rem;line-height:1;vertical-align:-.02em}
+/* bara despartitoare: stinsa si cu aer in jur, ca sa nu taie randul in doua */
+small .sep{opacity:.42;padding:0 .3rem}
+/* Pe telefon randul oricum nu incape si se rupe in doua. Atunci bara nu mai
+   are ce desparti — randurile o fac singure — asa ca o scoatem si asezam
+   fiecare jumatate pe randul ei, in loc s-o lasam atarnata la capat. */
+@media (max-width:719px){
+  small .sep{display:none}
+  small .f1,small .f2{display:block}
+}
+.toast{position:fixed;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:9;
+  background:var(--cream);color:var(--bg);font-weight:600;font-size:.95rem;
+  padding:.65rem 1.1rem;border-radius:.6rem;opacity:0;pointer-events:none}
+.toast.on{opacity:1}
+
+/* ============ momentul de intrare ============
+   O singura data, la incarcare: fundalul se stinge in pagina, continutul
+   urca pe rand, si cad cateva frunze. Nu se repeta, nu blocheaza nimic. */
+#fall{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}
+.lf{position:absolute;top:-16vh;left:var(--l);width:var(--w);opacity:0}
+.lf svg{display:block;width:100%;height:auto}
+
+@media (prefers-reduced-motion:no-preference){
+  .toast{transition:opacity .25s}
+
+  /* inainte de start totul e ascuns; secventa porneste cand fundalul a ajuns */
+  .boot .leaf,.boot .grid,.boot .sheet>*,.boot .head>*,.boot .list>*,.boot ul li{opacity:0}
+
+  /* 1. fundalul cu frunze, si frunzele incep sa cada */
+  .play .leaf.t{animation:wash .70s ease both}
+  .play .grid{animation:wash 1.4s ease .25s both}
+  /* 2. rama de frunze — sus si jos — se aseaza peste */
+  .play .leaf.b{animation:wash .62s ease .55s both}
+  @keyframes wash{from{opacity:0}}
+
+  /* 3. mana */
+  .play .hand{animation:palm .72s cubic-bezier(.2,.75,.3,1) 1.00s both}
+  @keyframes palm{from{opacity:0;transform:translateY(10px) scale(.90)}}
+
+  /* 4. restul, pe rand */
+  /* antetul e doar o cutie: nu se anima el, ci ce e in el */
+  .play .head,.play .list{opacity:1}
+  .play .head>h1,.play .head>.slogan,.play .head>.swap,.play .list>.shops,
+  .play .list>h2,.play .list>ul,.play .list>footer{
+    animation:rise .66s cubic-bezier(.22,.68,.32,1) both}
+  .play .head>h1{animation-delay:1.40s}
+  .play .head>.slogan{animation-delay:1.50s}
+  .play .head>.swap{animation-delay:1.56s}
+  .play .list>.shops{animation-delay:1.62s}
+  .play .list>h2{animation-delay:1.72s}
+  .play .list>ul{animation-delay:1.78s}
+  .play .list>footer{animation-delay:1.88s}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}}
+
+  .play ul li{animation:rise .55s cubic-bezier(.22,.68,.32,1) both}
+  ul li:nth-child(1){animation-delay:1.82s} ul li:nth-child(2){animation-delay:1.87s}
+  ul li:nth-child(3){animation-delay:1.92s} ul li:nth-child(4){animation-delay:1.97s}
+  ul li:nth-child(5){animation-delay:2.02s} ul li:nth-child(6){animation-delay:2.07s}
+  ul li:nth-child(7){animation-delay:2.12s} ul li:nth-child(8){animation-delay:2.17s}
+
+  /* frunzele cad IMEDIAT, nu asteapta poza de fundal. Pe internet slab poza
+     vine in cateva secunde, iar pana atunci omul vedea un ecran negru.
+     Acum vede frunzele cazand, iar fundalul si restul intra cand sunt gata. */
+  .lf{animation:fall var(--d) linear var(--t) forwards}
+  .play .lf svg{transform-origin:50% 45%;
+          animation:sway var(--sw) ease-in-out var(--t) infinite alternate}
+  @keyframes fall{
+    0%{transform:translate3d(0,0,0);opacity:0}
+    7%{opacity:.92}
+    82%{opacity:.92}
+    100%{transform:translate3d(var(--x),128vh,0);opacity:0}}
+  @keyframes sway{from{transform:rotate(var(--r0)) scaleX(1)}
+                  to{transform:rotate(var(--r1)) scaleX(.72)}}
+}
+/* ORICE ECRAN LAT — telefon si tableta culcate, laptop, Mac, monitor.
+   Verticala nu se atinge: conditia cere latimea mai mare decat inaltimea.
+   Am incercat si un prag mai jos, ca ecranele aproape patrate (pliabilul
+   deschis vertical) sa treaca si ele pe doua zone — dar acolo zona fixa
+   mananca jumatate din latime si butoanele scad de la 457 la 341 de puncte.
+   Pe un ecran aproape patrat o coloana lata bate doua coloane inguste.
+
+   Ecranul se imparte in doua. STANGA e fixa: mana, numele, sloganul si bara
+   de limbi. Nu se misca niciodata. DREAPTA e o fereastra care se deruleaza
+   singura, iar continutul ei intra sub frunzele de sus si de jos. Pagina
+   insasi nu mai are derulare — doar fereastra din dreapta. */
+@media (min-aspect-ratio:1/1){
+  html,body{height:100%}
+  body{overflow:hidden}
+  /* Pe ecran lat bara de sus deschide chiar ea lista, deci selectorul de jos
+     nu mai are ce cauta. Dar il ascundem DOAR atunci: cand bara propune o
+     limba anume, clicul pe ea pleaca spre acea pagina, si fara selectorul de
+     jos omul care vrea a treia limba ar ramane fara nicio cale. Clasa o pune
+     scriptul, in momentul in care bara devine "alege alta limba". */
+  body.bara-lista .lang{display:none}
+  /* cele doua zone nu se departeaza una de alta pe ecranele late: au latimi
+     maxime si stau lipite in mijloc, nu intinse pana la margini */
+  .sheet{max-width:none;width:100%;height:100%;margin:0;padding:0 3vw;
+    display:grid;grid-template-columns:minmax(12rem,23rem) minmax(0,33rem);
+    justify-content:center;column-gap:3.5rem;
+    grid-template-rows:1fr auto 1fr}
+
+  /* ZONA FIXA */
+  .head{grid-column:1;grid-row:2;align-self:center;text-align:center}
+  /* logoul creste cu inaltimea ecranului, nu ramane fix: asa arata la fel
+     de mare pe monitor ca pe tableta, nu se pierde in coltul lui */
+  .hand{width:20vh;max-width:13rem;margin:0 auto .8rem}
+  .head>.slogan{margin-bottom:1.4rem}
+  .head>.swap{max-width:22rem;margin:0 auto}
+
+  /* ZONA MOBILA: incepe si se termina sub frunze, deci randurile dispar
+     treptat la ambele capete in loc sa fie taiate brusc */
+  .list{grid-column:2;grid-row:1/-1;overflow-y:auto;overscroll-behavior:contain;
+    padding:19vh 0 17vh;scrollbar-width:none;-ms-overflow-style:none}
+  .list::-webkit-scrollbar{width:0;height:0}
+  .list>footer{margin-top:1.4rem}
+}
+
+/* TELEFONUL SI TABLETA MICA PE LAT (sub 540px inaltime): aceeasi impartire,
+   dar totul mai mic, ca sa incapa in cele cateva sute de puncte de inaltime */
+@media (max-height:540px) and (min-aspect-ratio:1/1){
+  .sheet{grid-template-columns:34% 1fr;column-gap:2.5vw;padding:0 2.5vw;
+    justify-content:stretch}
+  .hand{width:4.4rem;max-width:none;margin-bottom:.45rem}
+  .head>h1{font-size:1.4rem;margin-bottom:.35rem}
+  .head>.slogan{font-size:.88rem;margin-bottom:.8rem}
+  .list{padding:13vh 0 13vh}
+}
+
+/* telefoanele mici pe lat (sub 430px inaltime): mai stram cu o idee,
+   ca si al treilea magazin sa intre pe ecran fara derulare */
+@media (max-height:430px) and (min-aspect-ratio:1/1){
+  .sheet{padding:3.1rem 1.3rem 1.5rem}
+  .hand{width:3.3rem;margin-bottom:.25rem}
+  .head>h1{font-size:1.2rem;margin-bottom:.25rem}
+  .head>.slogan{font-size:.82rem;line-height:1.35}
+  .sheet>.shops{gap:.45rem;margin-bottom:.8rem}
+  .sheet .pill{min-height:3rem;padding:.55rem .75rem}
+  .sheet .pill img{width:2.15rem;height:2.15rem}
+  .sheet .tt{font-size:1rem}
+}
+/* ===================== KIDS =====================
+   Poza sta pe loc, in spatele paginii, si se vede prin tot: coloana din
+   mijloc e doar un abur subtire, iar butoanele au propriul fond inchis,
+   cat sa ramana citibile peste desen.
+   Coroana copacilor (.leaf.b) sta DEASUPRA continutului: la derulare palma
+   si butoanele trec pe sub creanga, nu peste ea. */
+body{background:#39707F}
+.leaf.t::after{display:none}
+.row,.shop-alt,.swap,.share,.langbtn{background:rgba(18,56,66,.56)}
+h1,.slogan,h2,small,.swap,.share,.langbtn{text-shadow:0 1px 3px rgba(10,40,48,.75)}
+.slogan{opacity:1}
+small,small+small{opacity:.9}
+footer{border-top-color:transparent}
+
+/* ---- telefon si ecrane inalte. Trei straturi:
+   1. in spate, pe loc: padurea in ceata (coroana + poiana prelungita in jos),
+      deci fundalul e desen de sus pana jos, nu culoare plina;
+   2. deasupra continutului, pe loc: coroana cu cei trei prieteni — palma si
+      butoanele trec pe sub ea la derulare;
+   3. la capatul paginii, derulandu-se cu ea: ceilalti sapte prieteni, intregi,
+      fara butoane peste ei. ---- */
+@media not (min-aspect-ratio:4/5){
+  .leaf{background-size:100% auto;background-position:center top}
+  .leaf.t{background-image:url("bg-tall.jpg")}
+  .leaf.b{display:block;top:0;height:150vw;z-index:3;
+    --rama:linear-gradient(to bottom,#000 0,#000 27vw,transparent 43vw);
+    -webkit-mask-image:var(--rama);mask-image:var(--rama)}
+  /* prietenii de jos stau si ei pe loc, DEASUPRA continutului, ca si coroana:
+     pagina se deruleaza doar in fereastra dintre ei */
+  .sheet{padding-top:39vw;padding-bottom:66vw}
+  /* fereastra de derulare e mica: antetul se strange, ca butonul galben
+     sa incapa intreg pe primul ecran */
+  .hand{width:6.2rem;margin-bottom:.4rem}
+  h1{margin-bottom:.35rem}
+  .slogan{margin-bottom:1rem}
+  .swap{margin-bottom:.9rem}
+  /* cele doua scene opresc atingerile: altfel un deget pus pe un personaj ar
+     apasa butonul ascuns dedesubt */
+  .ktop{display:block;position:fixed;left:0;right:0;top:0;height:27vw;z-index:4}
+  .kfoot{display:block;position:fixed;left:0;right:0;bottom:0;z-index:3;height:80vw;
+    pointer-events:auto;
+    background:url("bg.jpg") no-repeat center bottom;background-size:100% auto;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 24%);
+            mask-image:linear-gradient(to bottom,transparent 0,#000 24%)}
+}
+@media (min-aspect-ratio:4/5){.kfoot,.ktop{display:none}}
+
+/* ---- ecran lat: o singura coloana in poiana din mijloc, care se deruleaza
+   in ea insasi. Aburul din spatele ei nu are margini: se topeste in lateral
+   si dispare cu totul in partea de sus. ---- */
+@media (min-aspect-ratio:4/5){
+  .leaf{background-position:center 20%}
+  .leaf.b{display:block;
+    --rama:linear-gradient(to bottom,#000 0,#000 7%,transparent 17%);
+    -webkit-mask-image:var(--rama);mask-image:var(--rama)}
+  html,body{height:100%}
+  body{overflow:hidden}
+  .sheet{display:block;position:relative;height:100%;margin:0 auto;
+    width:max(21rem,31vw);max-width:29rem;padding:15vh 1.2rem 12vh;
+    overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+  .sheet::-webkit-scrollbar{width:0;height:0}
+  .sheet::before{content:"";position:fixed;z-index:-1;top:0;bottom:0;left:50%;
+    width:calc(max(21rem,31vw) + 12rem);max-width:41rem;transform:translateX(-50%);
+    background:rgba(22,62,74,.42);pointer-events:none;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),
+                       linear-gradient(to bottom,transparent 14%,#000 46%);
+            mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),
+                       linear-gradient(to bottom,transparent 14%,#000 46%);
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+  .head{text-align:center}
+  .hand{width:7.5rem;max-width:none;margin:0 auto .7rem}
+  .head>.swap{margin-bottom:1.1rem}
+  .list{overflow:visible;padding:0}
+}
+@media (max-height:540px) and (min-aspect-ratio:4/5){
+  .sheet{padding:14vh 1.2rem 2rem}
+  .hand{width:4.4rem}
+}
+</style>
+<script>
+/* Intrarea porneste cand imaginea de fundal a ajuns efectiv — nu dupa ceas.
+   Asa arata la fel si pe wifi, si pe un 4G prost. Plasa de siguranta: 2.6s. */
+(function(d){
+  var h = d.documentElement;
+  if (!matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+  h.className = "boot";
+  function go(){ h.className = "play"; }
+  var i = new Image();
+  i.onload = go; i.onerror = go;
+  /* aceeasi conditie ca in CSS, ca sa nu descarce poza pe care n-o foloseste */
+  i.src = matchMedia("(min-aspect-ratio: 4/5)").matches
+        ? "bg-wide.jpg" : "bg.jpg";
+  setTimeout(go, 2600);
+})(document);
+</script>
+</head>
+<body>
+<div class="grid" id="gr" aria-hidden="true"></div>
+<div class="leaf t"></div><div class="leaf b"></div>
+<div id="fall" aria-hidden="true"></div>
+<main class="sheet">
+  <div class="head">
+    <img class="hand" src="hand.png" alt="">
+    <h1>Ancestral Mark Kids</h1>
+    <p class="slogan">Colorful puzzles, mazes and word games for curious little minds.</p>
+    <a class="swap" id="sw" href="#"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18"/></svg><b id="swt"></b><span class="go" aria-hidden="true">&rsaquo;</span></a>
+  </div>
+
+  <div class="list">
+  <div class="shops">
+    <a class="pill shop-main" href="https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB" target="_blank" rel="noopener noreferrer">
+      <img src="../_icons/amazon.png" alt="">
+      <span><span class="tt">Our books</span><span class="ss">Amazon.com</span></span>
+      <span class="go" aria-hidden="true">&rsaquo;</span></a>
+    <a class="pill shop-alt" id="pk" target="_blank" rel="noopener noreferrer" hidden>
+      <img src="../_icons/amazon.png" alt="">
+      <span><span class="tt"></span><span class="ss"></span></span>
+      <span class="go" aria-hidden="true">&rsaquo;</span></a>
+    <a class="pill shop-alt" href="https://www.etsy.com/shop/AncestralEditorial" target="_blank" rel="noopener noreferrer">
+      <img src="../_icons/etsy.png" alt="">
+      <span><span class="tt">Print at home</span><span class="ss">PDF pages on Etsy</span></span>
+      <span class="go" aria-hidden="true">&rsaquo;</span></a>
+  </div>
+
+  <h2>Follow us</h2>
+  <ul>
+    <li><a class="row" href="https://www.tiktok.com/@ancestral_mark_editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/tiktok.png" alt=""><span><span class="tt">TikTok</span><span class="ss">Word challenges</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.instagram.com/ancestralmark/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/instagram.png" alt=""><span><span class="tt">Instagram</span><span class="ss">Behind the pages</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.facebook.com/profile.php?id=61595210855885" target="_blank" rel="noopener noreferrer me"><img src="../_icons/facebook.png" alt=""><span><span class="tt">Facebook</span><span class="ss">Join the community</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.youtube.com/@Ancestral_Mark_Editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/youtube.png" alt=""><span><span class="tt">YouTube</span><span class="ss">Videos and challenges</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.linkedin.com/in/ancestral-mark-editorial/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/linkedin.png" alt=""><span><span class="tt">LinkedIn</span><span class="ss">Our editorial world</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://x.com/ancestral_mark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/x.png" alt=""><span><span class="tt">X</span><span class="ss">News and updates</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.threads.com/@ancestralmark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/threads.png" alt=""><span><span class="tt">Threads</span><span class="ss">Short conversations</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+  </ul>
+
+  <footer>
+    <button class="share" type="button" id="sh"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5V3.5m0 0L8.6 6.9M12 3.5l3.4 3.4"/><path d="M5.5 12v7a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-7"/></svg><span>Share this with a friend</span></button>
+    <p class="lang"><button type="button" class="langbtn" id="lgb" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/>
+        <path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18"/></svg>
+      <span>English (US)</span>
+      <span class="go" aria-hidden="true">&rsaquo;</span></button></p>
+    <small dir="ltr">Copyright &copy; 2026 Ancestral Mark Editorial. All rights reserved.</small>
+    <small dir="ltr"><span class="f1">Independent creator, publisher</span><span class="sep">|</span><span class="f2">thoughtful and made&nbsp;with&nbsp;<span class="hrt">&#9829;</span></span></small>
+  </footer>
+  </div>
+</main>
+<div class="kfoot" aria-hidden="true"></div><div class="ktop" aria-hidden="true"></div>
+<dialog class="langbox" id="lp" aria-label="Language">
+  <div class="lbtop"><b>Language</b>
+    <button type="button" class="lbx" id="lpx" aria-label="&times;">&times;</button></div>
+  <div class="lbgrid"><a class="lbi" href="/kids/ca" lang="ca">Català</a><a class="lbi" href="/kids/cs" lang="cs">Čeština</a><a class="lbi" href="/kids/da" lang="da">Dansk</a><a class="lbi" href="/kids/de" lang="de">Deutsch</a><a class="lbi" href="/kids/uk" lang="uk">English (UK)</a><a class="lbi" href="/kids/en" lang="en" aria-current="page">English (US)</a><a class="lbi" href="/kids/es" lang="es">Español</a><a class="lbi" href="/kids/fr" lang="fr">Français</a><a class="lbi" href="/kids/hr" lang="hr">Hrvatski</a><a class="lbi" href="/kids/it" lang="it">Italiano</a><a class="lbi" href="/kids/lt" lang="lt">Lietuvių</a><a class="lbi" href="/kids/hu" lang="hu">Magyar</a><a class="lbi" href="/kids/nl" lang="nl">Nederlands</a><a class="lbi" href="/kids/no" lang="no">Norsk</a><a class="lbi" href="/kids/pl" lang="pl">Polski</a><a class="lbi" href="/kids/pt" lang="pt">Português</a><a class="lbi" href="/kids/ro" lang="ro">Română</a><a class="lbi" href="/kids/sq" lang="sq">Shqip</a><a class="lbi" href="/kids/sk" lang="sk">Slovenčina</a><a class="lbi" href="/kids/sl" lang="sl">Slovenščina</a><a class="lbi" href="/kids/sr" lang="sr">Srpski</a><a class="lbi" href="/kids/fi" lang="fi">Suomi</a><a class="lbi" href="/kids/sv" lang="sv">Svenska</a><a class="lbi" href="/kids/el" lang="el">Ελληνικά</a><a class="lbi" href="/kids/ar" lang="ar">العربية</a></div>
+</dialog>
+<div class="toast" id="tst"></div>
+<script>
+(function(){
+  // banda de limba: apare DOAR daca limba browserului difera de a paginii
+  var SW={"en": "This page is also available in English", "it": "Questa pagina è disponibile anche in italiano", "es": "Esta página también está disponible en español", "de": "Diese Seite ist auch auf Deutsch verfügbar", "fr": "Cette page est aussi disponible en français", "pt": "Esta página também está disponível em português", "nl": "Deze pagina is ook beschikbaar in het Nederlands", "pl": "Ta strona jest dostępna także po polsku", "ro": "Această pagină este disponibilă și în română", "da": "Denne side findes også på dansk", "fi": "Tämä sivu on saatavilla myös suomeksi", "uk": "This page is also available in English", "sv": "Den här sidan finns även på svenska", "el": "Αυτή η σελίδα είναι διαθέσιμη και στα ελληνικά", "sk": "Táto stránka je dostupná aj v slovenčine", "cs": "Tato stránka je dostupná také v češtině", "hu": "Ez az oldal magyarul is elérhető", "sr": "Ova stranica je dostupna i na srpskom", "sq": "Kjo faqe është e disponueshme edhe në shqip", "no": "Denne siden finnes også på norsk", "hr": "Ova stranica dostupna je i na hrvatskom", "sl": "Ta stran je na voljo tudi v slovenščini", "lt": "Šis puslapis taip pat yra lietuvių kalba", "ca": "Aquesta pàgina també està disponible en català", "ar": "هذه الصفحة متوفرة أيضًا بالعربية"}, SWEN={"en": "This page is also available on Amazon.com", "uk": "This page is also available on Amazon.co.uk"}, here=document.documentElement.lang;
+  var pageIsEN = (here==="en" || here==="uk");
+  var pref=(navigator.languages||[navigator.language||"en"]);
+  var TZL={"Europe/Athens": "el", "Europe/Bratislava": "sk", "Europe/Prague": "cs", "Europe/Budapest": "hu", "Europe/Belgrade": "sr", "Europe/Podgorica": "sr", "Europe/Tirane": "sq", "Europe/Bucharest": "ro", "Europe/Chisinau": "ro", "Europe/Warsaw": "pl", "Europe/Berlin": "de", "Europe/Vienna": "de", "Europe/Zurich": "de", "Europe/Paris": "fr", "Europe/Brussels": "fr", "Europe/Rome": "it", "Europe/Madrid": "es", "Europe/Lisbon": "pt", "Europe/Amsterdam": "nl", "Europe/Stockholm": "sv", "Europe/Copenhagen": "da", "Europe/Helsinki": "fi", "Europe/London": "uk", "America/Mexico_City": "es", "America/Monterrey": "es", "America/Cancun": "es", "America/Bogota": "es", "America/Lima": "es", "America/Santiago": "es", "America/Argentina/Buenos_Aires": "es", "America/Sao_Paulo": "pt", "America/Montreal": "fr", "Europe/Oslo": "no", "Europe/Zagreb": "hr", "Europe/Ljubljana": "sl", "Europe/Vilnius": "lt", "Asia/Dubai": "ar", "Asia/Riyadh": "ar", "Africa/Cairo": "ar", "Asia/Baghdad": "ar", "Asia/Amman": "ar", "Asia/Beirut": "ar", "Asia/Kuwait": "ar", "Asia/Qatar": "ar", "Asia/Bahrain": "ar", "Asia/Muscat": "ar", "Asia/Aden": "ar", "Asia/Damascus": "ar", "Africa/Casablanca": "ar", "Africa/Tunis": "ar", "Africa/Algiers": "ar", "Africa/Tripoli": "ar", "Africa/Khartoum": "ar"}, HOME={"Europe/Madrid": ["es", "ca"], "Europe/Zurich": ["de", "fr", "it"], "Europe/Vienna": ["de"], "Europe/Brussels": ["nl", "fr", "de"], "Europe/Luxembourg": ["fr", "de"], "Europe/Belgrade": ["sr", "hr"], "Europe/Zagreb": ["hr", "sr"], "Europe/Sarajevo": ["hr", "sr"], "Europe/Podgorica": ["sr", "sq"], "Europe/Skopje": ["sq"], "Europe/Tirane": ["sq", "el"], "Europe/Helsinki": ["fi", "sv"], "Europe/Bratislava": ["sk", "cs", "hu"], "Europe/Prague": ["cs", "sk"], "Europe/Bucharest": ["ro", "hu"], "Europe/Ljubljana": ["sl", "it", "hu"], "Europe/Vilnius": ["lt", "pl"], "Europe/Rome": ["it", "de", "sl"], "Europe/Copenhagen": ["da", "de"], "Europe/London": ["en", "uk"], "Europe/Dublin": ["en", "uk"], "Europe/Paris": ["fr"], "Europe/Berlin": ["de"], "Europe/Amsterdam": ["nl"], "Europe/Warsaw": ["pl"], "Europe/Stockholm": ["sv"], "Europe/Oslo": ["no"], "Europe/Athens": ["el"], "Europe/Budapest": ["hu"], "Europe/Lisbon": ["pt"], "Asia/Dubai": ["ar"], "Asia/Riyadh": ["ar"], "Africa/Cairo": ["ar"], "Asia/Baghdad": ["ar"], "Asia/Amman": ["ar"], "Asia/Beirut": ["ar"], "Asia/Kuwait": ["ar"], "Asia/Qatar": ["ar"], "Asia/Bahrain": ["ar"], "Asia/Muscat": ["ar"], "Asia/Aden": ["ar"], "Asia/Damascus": ["ar"], "Africa/Casablanca": ["ar"], "Africa/Tunis": ["ar"], "Africa/Algiers": ["ar"], "Africa/Tripoli": ["ar"], "Africa/Khartoum": ["ar"]}, tzNow="";
+  try { tzNow = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch(e){}
+  function showBar(c){
+    var el=document.getElementById("sw");
+    var bothEN = pageIsEN && (c==="en"||c==="uk");
+    document.getElementById("swt").textContent = bothEN ? SWEN[c] : SW[c];
+    el.setAttribute("href","/kids/"+c); el.setAttribute("lang",c); el.classList.add("on");
+    el.addEventListener("click", function(ev){
+      remember();                               // tine minte ca a ales o data
+      plecCuFrunze(ev, "/kids/"+c);              // si cad frunzele peste trecere
+    });
+  }
+  var barDone=false, SWKEY="amv_lang_switched";
+  var panou=document.getElementById("lp");
+  // Limba in care esti sta oriunde in lista alfabetica: romana e a 17-a,
+  // araba a 25-a. Fara randurile de mai jos, omul deschide panoul si nu-si
+  // vede limba curenta, deci nu stie unde se afla. O aducem la mijloc.
+  function aratLimbaCurenta(){
+    var cur = panou.querySelector(".lbi[aria-current]");
+    var g = panou.querySelector(".lbgrid");
+    if (!cur || !g) return;
+    var rc = cur.getBoundingClientRect(), rg = g.getBoundingClientRect();
+    g.scrollTop += (rc.top - rg.top) - (g.clientHeight - cur.offsetHeight) / 2;
+  }
+  function deschidePanoul(ev){
+    if (ev) ev.preventDefault();
+    if (panou.showModal) {
+      try { panou.showModal(); aratLimbaCurenta(); return; } catch(e){}
+    }
+    panou.setAttribute("open","");          // browsere vechi: tot se vede
+    aratLimbaCurenta();
+  }
+  document.getElementById("lgb").addEventListener("click", deschidePanoul);
+  document.getElementById("lpx").addEventListener("click", function(){ panou.close(); });
+  panou.addEventListener("click", function(ev){     // atingere in afara ferestrei
+    if (ev.target === panou) panou.close();
+  });
+  function remember(){ try{ sessionStorage.setItem(SWKEY,"1"); }catch(e){} }
+  // Pleaca spre alta limba, dar lasa intai frunzele sa cada o clipa.
+  // Daca omul vrea tab nou (Ctrl, Cmd, Shift, rotita) nu ne bagam deloc,
+  // si daca a cerut miscare redusa sarim peste tot ritualul.
+  function plecCuFrunze(ev, unde){
+    if (!unde || unde.charAt(0) === "#") return;
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
+    if (!window.__frunze) return;
+    ev.preventDefault();
+    try { panou.close(); } catch(e){}
+    window.__frunze(16, false);
+    setTimeout(function(){ location.href = unde; }, 280);
+  }
+  // Bara nu dispare niciodata. Cand n-avem nicio limba de propus, arata globul
+  // cu "alege alta limba" si deschide lista cu toate — asa spaniolul cu telefonul
+  // pe engleza, aflat in Londra, isi gaseste limba fara sa caute pana jos.
+  function showList(){
+    var el=document.getElementById("sw");
+    document.getElementById("swt").textContent = "Choose another language";
+    el.setAttribute("href","#");
+    el.classList.add("on");
+    el.addEventListener("click", deschidePanoul);
+    // bara deschide chiar ea lista: pe ecran lat selectorul de jos devine
+    // de prisos si CSS-ul il ascunde pe baza acestei clase
+    document.body.classList.add("bara-lista");
+    barDone = true;
+  }
+  var already=false; try{ already = sessionStorage.getItem(SWKEY)==="1"; }catch(e){}
+  if (already) showList();          // a mai schimbat o data: ii dam lista intreaga
+  for (var i=0;i<pref.length && !barDone;i++){
+    var full=String(pref[i]).toLowerCase(), c=full.split("-")[0];
+    if (c==="br") c="pt";
+    if (c==="nb"||c==="nn") c="no";
+    if (c==="en") c = (full==="en-gb") ? "uk" : "en";   // britanicii -> pagina UK
+    if (c===here) break;                 // deja e in limba lui, nu aratam nimic
+    // intre cele doua pagini englezesti aratam banda doar daca difera magazinul
+    if (pageIsEN && (c==="en"||c==="uk") && c===here) break;
+    if (SW[c]) { showBar(c); barDone=true; }
+  }
+  // Limba telefonului n-a cerut nimic. Atunci ne uitam la ceas: un grec cu
+  // telefonul in engleza tot grec e, iar ceasul lui spune Atena.
+  // ceasul propune o limba doar daca limba paginii NU e deja una de-a locului:
+  // catalanul din Barcelona si-a ales catalana dinadins, nu-i oferim spaniola.
+  var acasa = (HOME[tzNow] || []).indexOf(here) !== -1;
+  if (!barDone && !acasa && TZL[tzNow] && TZL[tzNow] !== here && SW[TZL[tzNow]]) {
+    showBar(TZL[tzNow]); barDone = true;
+  }
+  if (!barDone) showList();          // n-avem nimic de propus: globul si lista
+
+  // Al doilea magazin Amazon.
+  // Limba telefonului spune CINE e omul — "en-gb" inseamna ca are cont pe
+  // amazon.co.uk, oriunde s-ar afla. Fusul orar spune doar UNDE e acum, deci
+  // il folosim numai cand limba nu are tara in ea (des pe laptopuri).
+  // Daca niciunul nu stie, randul ramane ascuns.
+  var PICK = [{"lang": ["en-gb"], "tz": [], "url": "https://www.amazon.co.uk/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.co.uk", "sub": "For readers in the UK", "block_tz": ["Europe/"]}, {"lang": ["en-au"], "tz": ["Australia/"], "url": "https://www.amazon.com.au/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com.au", "sub": "For readers in Australia", "promote": true, "market": "Amazon.com.au", "anchor_title": "Also on Amazon.com", "anchor_sub": "For readers in the US"}, {"lang": ["en-ca", "fr-ca"], "tz": ["America/Toronto", "America/Montreal", "America/Vancouver", "America/Edmonton", "America/Winnipeg", "America/Halifax", "America/St_Johns", "America/Regina", "America/Moncton", "America/Whitehorse", "America/Yellowknife", "America/Iqaluit", "America/Glace_Bay", "America/Goose_Bay", "America/Swift_Current", "America/Dawson_Creek", "America/Fort_Nelson", "America/Cambridge_Bay", "America/Inuvik", "America/Rankin_Inlet", "America/Creston", "America/Dawson"], "url": "https://www.amazon.ca/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.ca", "sub": "For readers in Canada", "promote": true, "market": "Amazon.ca", "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": ["es-mx"], "tz": ["America/Mexico_City", "America/Cancun", "America/Merida", "America/Monterrey", "America/Matamoros", "America/Chihuahua", "America/Ojinaga", "America/Hermosillo", "America/Mazatlan", "America/Bahia_Banderas", "America/Tijuana"], "url": "https://www.amazon.com.mx/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com.mx", "sub": "For readers in Mexico"}, {"lang": [], "tz": ["Europe/London"], "url": "https://www.amazon.co.uk/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.co.uk", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Berlin", "Europe/Vienna", "Europe/Zurich"], "url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.de", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Paris", "Europe/Brussels"], "url": "https://www.amazon.fr/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.fr", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Madrid"], "url": "https://www.amazon.es/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.es", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Rome"], "url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.it", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Amsterdam"], "url": "https://www.amazon.nl/dp/B0HMHYNPRN", "market": "Amazon.nl", "promote": true, "second": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Warsaw"], "url": "https://www.amazon.pl/dp/B0HMHYNPRN", "market": "Amazon.pl", "promote": true, "second": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/Stockholm"], "url": "https://www.amazon.se/dp/B0HMHYNPRN", "market": "Amazon.se", "promote": true, "second": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}}, {"lang": [], "tz": ["Europe/"], "url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "market": "Amazon.de", "promote": true, "second": {"url": "https://www.amazon.com/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com", "sub": "All our books"}}], PROMO = false, pk = document.getElementById("pk");
+  if (pk && PICK.length) {
+    var hit = null;
+    var langs = navigator.languages || [navigator.language || ""];
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch(e){}
+    function inZones(list) {
+      for (var i = 0; i < (list||[]).length; i++) {
+        var z = list[i];
+        if (z.charAt(z.length-1) === "/" ? tz.indexOf(z) === 0 : tz === z) return true;
+      }
+      return false;
+    }
+    for (var a = 0; a < langs.length && !hit; a++) {         // 1. dupa limba
+      var tag = String(langs[a]).toLowerCase();
+      for (var b = 0; b < PICK.length; b++) {
+        // "en-GB" e varianta de engleza aleasa de multi europeni fara legatura cu
+        // UK. Daca ceasul e in Europa continentala, limba nu mai conteaza aici.
+        if (inZones(PICK[b].block_tz)) continue;
+        if ((PICK[b].lang || []).indexOf(tag) !== -1) { hit = PICK[b]; break; }
+      }
+    }
+    if (!hit) {                                              // 2. dupa fusul orar
+      for (var c2 = 0; c2 < PICK.length && !hit; c2++) {
+        var zs = PICK[c2].tz || [];
+        for (var d2 = 0; d2 < zs.length; d2++) {
+          var z = zs[d2];
+          if (z.charAt(z.length-1) === "/" ? tz.indexOf(z) === 0 : tz === z) { hit = PICK[c2]; break; }
+        }
+      }
+    }
+    // Ceasul n-a avut ce propune? Atunci ne uitam la limba telefonului.
+    // Un german care si-a trecut pagina pe engleza, aflat la Londra, are tot
+    // cont pe amazon.de: regula "none" il oprea odata cu britanicul, pentru
+    // care oprirea e corecta. Umplem DOAR un loc ramas gol — ce a hotarat
+    // ceasul nu se atinge niciodata.
+    if (!hit || hit.none) {
+      var LS = {"ca": {"url": "https://www.amazon.es/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.es", "sub": "All our books"}, "cs": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "da": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "de": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "uk": {"url": "https://www.amazon.co.uk/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.co.uk", "sub": "All our books"}, "es": {"url": "https://www.amazon.es/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.es", "sub": "All our books"}, "fr": {"url": "https://www.amazon.fr/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.fr", "sub": "All our books"}, "hr": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.it", "sub": "All our books"}, "it": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.it", "sub": "All our books"}, "lt": {"url": "https://www.amazon.pl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.pl", "sub": "All our books"}, "hu": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "nl": {"url": "https://www.amazon.nl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.nl", "sub": "All our books"}, "no": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "pl": {"url": "https://www.amazon.pl/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.pl", "sub": "All our books"}, "pt": {"url": "https://www.amazon.com.br/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.com.br", "sub": "All our books"}, "ro": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "sq": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "sk": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "sl": {"url": "https://www.amazon.it/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.it", "sub": "All our books"}, "sr": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "fi": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "sv": {"url": "https://www.amazon.se/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.se", "sub": "All our books"}, "el": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}, "ar": {"url": "https://www.amazon.de/stores/Ancestral-Mark-Editorial/author/B0HMKM11WB", "title": "Also on Amazon.de", "sub": "All our books"}};
+      for (var e2 = 0; e2 < langs.length; e2++) {
+        var intreg = String(langs[e2]).toLowerCase();
+        var baza = intreg.split("-")[0];
+        if (baza === "nb" || baza === "nn") baza = "no";
+        if (baza === "br") baza = "pt";
+        // "en-GB" inseamna cont pe amazon.co.uk, nu pe .com. Restul paginii
+        // stie asta de mult; aici trebuie spus din nou.
+        if (baza === "en") baza = (intreg === "en-gb") ? "uk" : "en";
+        if (LS[baza]) { hit = LS[baza]; break; }
+      }
+    }
+    // o regula "none" inseamna: opreste cautarea si nu schimba nimic. Asa
+    // britanicul din Londra nu mai cade in plasa europeana care da Amazon.de.
+    if (hit && !hit.none) {
+      var main = document.querySelector(".shop-main");
+      // unele reguli urca singure pe butonul portocaliu, chiar daca pagina nu promoveaza:
+      // canadianul si australianul, pentru care ancora e pe alt continent.
+      if ((PROMO || hit.promote) && main) {
+        // magazinul omului urca pe butonul portocaliu
+        var home = main.getAttribute("href");
+        main.setAttribute("href", hit.url);
+        main.querySelector(".ss").textContent = hit.market || "";
+        if (hit.main_title) main.querySelector(".tt").textContent = hit.main_title;
+        var sec = hit.second;
+        if (!sec && hit.anchor_title)           // ancora paginii coboara pe randul doi
+          sec = { url: home, title: hit.anchor_title, sub: hit.anchor_sub };
+        if (sec) {
+          pk.setAttribute("href", sec.url);
+          pk.querySelector(".tt").textContent = sec.title || "";
+          pk.querySelector(".ss").textContent = sec.sub || "";
+          pk.removeAttribute("hidden");
+        }
+      } else {                                   // paginile care nu promoveaza: rand simplu
+        pk.setAttribute("href", hit.url);
+        pk.querySelector(".tt").textContent = hit.title || "";
+        pk.querySelector(".ss").textContent = hit.sub || "";
+        pk.removeAttribute("hidden");
+      }
+      // cand stim ceva anume despre om, alternativa generala se da la o parte:
+      // mereu doua magazine, niciodata patru randuri care sa-l oboseasca.
+      // Exceptie: regulile cu "keep_extra" vor dinadins sa ramana amandoua,
+      // ca omul sa aleaga singur (polonezul din Suedia: .se si .de).
+      if (!hit.keep_extra) {
+        var gen = document.querySelectorAll(".shop-extra");
+        for (var g = 0; g < gen.length; g++) gen[g].setAttribute("hidden","");
+      }
+    }
+  }
+
+  // frunzele de intrare: cad o singura data, apoi stratul dispare complet
+  if (matchMedia("(prefers-reduced-motion: no-preference)").matches){
+    var F=["M50 3c3 10 5 18 9 24 5-2 10-5 14-9-1 7-2 13-4 19 7-1 14-3 21-6-4 6-9 11-14 15 5 3 11 5 17 6-7 4-14 7-21 8 3 5 6 10 10 14-8 0-15-1-22-4 0 6 1 12 3 18-6-4-11-8-15-13-2 8-3 16-3 24h-4c0-8-1-16-3-24-4 5-9 9-15 13 2-6 3-12 3-18-7 3-14 4-22 4 4-4 7-9 10-14-7-1-14-4-21-8 6-1 12-3 17-6-5-4-10-9-14-15 7 3 14 5 21 6-2-6-3-12-4-19 4 4 9 7 14 9 4-6 6-14 9-24z",
+             "M50 2c26 20 38 50 2 95-1 1-3 1-4 0C12 52 24 22 50 2z"];
+    var C=["#FFC93C","#FF5D73","#E8A33C","#D1552A"];
+    function R(a,b){ return a+Math.random()*(b-a); }
+    // Stratul se sterge dupa intrare, deci cand il cerem din nou (la schimbarea
+    // limbii) il facem la loc.
+    function stratul(){
+      var f=document.getElementById("fall");
+      if (!f){ f=document.createElement("div"); f.id="fall";
+               f.setAttribute("aria-hidden","true"); document.body.appendChild(f); }
+      return f;
+    }
+    window.__frunze = function(cate, dinMijloc){
+      var f=stratul();
+      for (var k=0;k<cate;k++) f.appendChild(oFrunza(k, dinMijloc));
+    };
+    function oFrunza(k, dinMijloc){
+      var s=document.createElement("span"); s.className="lf";
+      // una din trei e mai mare = mai aproape de ochi, deci cade mai repede
+      var big = (k % 3 === 0);
+      var dur = big ? R(2.6,3.6) : R(3.4,5.2);
+      // primele 8 pornesc din MIJLOCUL caderii (intarziere negativa), ca ecranul
+      // sa fie deja plin de frunze din primul cadru, nu gol.
+      var del = (dinMijloc && k < 8) ? -R(.28,.78)*dur : R(0,1.4);
+      s.style.cssText = "--l:"+R(1,95).toFixed(1)+"%;"
+        + "--w:"+(big ? R(24,38) : R(12,22)).toFixed(0)+"px;"
+        + "--d:"+dur.toFixed(2)+"s;--t:"+del.toFixed(2)+"s;"
+        + "--x:"+R(-60,60).toFixed(0)+"px;--sw:"+R(1,1.9).toFixed(2)+"s;"
+        + "--r0:"+R(-30,30).toFixed(0)+"deg;--r1:"+R(40,160).toFixed(0)+"deg;";
+      s.innerHTML = '<svg viewBox="0 0 100 100" fill="'+C[(Math.random()*4)|0]+'"><path d="'
+                  + F[(Math.random()*2)|0] + '"/></svg>';
+      return s;
+    }
+    // frunzele de intrare: pornesc din mijlocul caderii, ca ecranul sa fie
+    // plin din primul cadru
+    window.__frunze(24, true);
+    setTimeout(function(){
+      var f=document.getElementById("fall");
+      if (f && f.parentNode) f.parentNode.removeChild(f);
+    }, 10000);
+  }
+
+  // grila de litere, ca intr-un word search
+  var g=document.getElementById("gr"), AB="ABCDEFGHIJKLMNOPQRSTUVWXYZ", out="";
+  var cols=Math.ceil(innerWidth/34)+2, rows=Math.ceil(innerHeight/34)+2;
+  for(var i=0;i<cols*rows;i++) out+="<span>"+AB[(Math.random()*26)|0]+"</span>";
+  g.innerHTML=out;
+
+  // orice limba aleasa din panou e tinuta minte, ca bara sa ramana pe
+  // "alege alta limba" si omul sa se poata intoarce oricand.
+  // Tot aici pornim frunzele: acopera clipa in care pagina noua se incarca,
+  // mai ales la araba, unde tot ecranul se intoarce de la dreapta la stanga.
+  panou.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest(".lbi");
+    if (!a) return;
+    remember();
+    plecCuFrunze(ev, a.getAttribute("href"));
+  });
+
+  // Dupa un clic cu mausul sau cu degetul, butonul nu are voie sa ramana
+  // aprins. Linkurile se deschid in tab nou, deci pagina asta ramane in
+  // spate; fara randurile de mai jos butonul apasat pastra inelul de
+  // focalizare si parea inca activ cand omul se intorcea.
+  // ev.detail este 0 cand apasarea a venit de la tastatura: acolo nu ne
+  // atingem de focalizare, altfel cine navigheaza cu Tab isi pierde locul.
+  document.addEventListener("click", function(ev){
+    var t = ev.target.closest && ev.target.closest(
+      ".pill,.row,.lbi,.share,.swap,.langbtn");
+    if (t && ev.detail > 0 && t.blur) setTimeout(function(){ t.blur(); }, 0);
+  });
+  // Cand omul se intoarce din celalalt tab, nimic nu ramane apasat.
+  window.addEventListener("pageshow", function(){
+    var a = document.activeElement;
+    if (a && a !== document.body && a.blur) a.blur();
+  });
+
+  var btn=document.getElementById("sh"), tst=document.getElementById("tst");
+  function toast(t){ tst.textContent=t; tst.classList.add("on");
+                     setTimeout(function(){tst.classList.remove("on")},2200); }
+  btn.addEventListener("click", function(){
+    var data={ title:"Ancestral Mark Kids", text:"Take the challenge — no battery, no signal, just peace.", url:location.href };
+    if (navigator.share) {                       // telefon: fereastra nativa
+      navigator.share(data).catch(function(){});
+    } else if (navigator.clipboard) {            // desktop: copiaza linkul
+      navigator.clipboard.writeText(location.href).then(function(){
+        toast("Link copied");
+      }).catch(function(){ toast(location.href); });
+    } else {
+      toast(location.href);
+    }
+  });
+})();
+</script>
+<script>
+/* Pe ecran tactil nu exista cursor: degetul tine locul lui. Cat timp atinge
+   sau aluneca peste un buton, acela primeste clasa .hv (aceeasi lumina ca la
+   hover pe desktop) si o pierde cand degetul pleaca. */
+(function(){
+  var SEL=".pill,.row,.lbi,.share,.langbtn,.swap,.lbx",cur=null,t=0;
+  function set(el){ if(el===cur) return;
+    if(cur) cur.classList.remove("hv"); cur=el; if(cur) cur.classList.add("hv"); }
+  function at(ev){ var p=ev.touches&&ev.touches[0]; if(!p) return;
+    clearTimeout(t);
+    var el=document.elementFromPoint(p.clientX,p.clientY);
+    set(el&&el.closest?el.closest(SEL):null); }
+  function off(){ clearTimeout(t); t=setTimeout(function(){set(null)},180); }
+  var o={passive:true};
+  document.addEventListener("touchstart",at,o);
+  document.addEventListener("touchmove",at,o);
+  document.addEventListener("touchend",off,o);
+  document.addEventListener("touchcancel",off,o);
+  window.addEventListener("pageshow",function(){set(null)});
+})();
+</script>
+</body>
+</html>
