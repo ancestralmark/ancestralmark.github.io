@@ -529,23 +529,30 @@ footer{border-top-color:transparent}
 }
 @media (min-aspect-ratio:4/5){.kfoot,.ktop{display:none}}
 
-/* ---- ecran lat: o singura coloana in poiana din mijloc, care se deruleaza
-   in ea insasi. Aburul din spatele ei nu are margini: se topeste in lateral
-   si dispare cu totul in partea de sus. ---- */
+/* ---- ecran lat (laptop, tableta culcata, telefon culcat).
+   Poza are doua straturi suprapuse perfect: in spate padurea intreaga, iar
+   DEASUPRA continutului aceeasi poza decupata — doar crengile, frunzele,
+   personajele si pamantul. Asa butoanele trec cu adevarat PE SUB frunze si
+   prin spatele prietenilor, in loc sa se ciocneasca de ei.
+   --iw = latimea la care e desenata poza (cover), ca sa asezam coloana pe
+   poiana din desen, nu pe mijlocul ecranului: poiana e putin spre stanga. ---- */
 @media (min-aspect-ratio:4/5){
+  :root{--iw:max(100vw,150vh)}
+  @supports (height:1lvh){:root{--iw:max(100vw,150lvh)}}
+  :root{--cx:calc(50vw - var(--iw)*.05);--cw:clamp(18.5rem,calc(var(--iw)*.27),29rem)}
   .leaf{background-position:center 20%}
-  .leaf.b{display:block;
-    --rama:linear-gradient(to bottom,#000 0,#000 7%,transparent 17%);
-    -webkit-mask-image:var(--rama);mask-image:var(--rama)}
+  .leaf.b{display:block;background-image:url("fg-wide.webp");
+    --rama:none;-webkit-mask-image:none;mask-image:none}
   html,body{height:100%}
   body{overflow:hidden}
-  .sheet{display:block;position:relative;height:100%;margin:0 auto;
-    width:max(21rem,31vw);max-width:29rem;padding:15vh 1.2rem 12vh;
+  .sheet{display:block;position:absolute;top:0;height:100%;margin:0;
+    left:calc(var(--cx) - var(--cw)/2);width:var(--cw);max-width:none;
+    padding:15vh .2rem 30vh;
     overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
   .sheet::-webkit-scrollbar{width:0;height:0}
-  .sheet::before{content:"";position:fixed;z-index:-1;top:0;bottom:0;left:50%;
-    width:calc(max(21rem,31vw) + 12rem);max-width:41rem;transform:translateX(-50%);
-    pointer-events:none;
+  /* aburul din spatele coloanei: fara margini, se topeste in lateral si in sus */
+  body::after{content:"";position:fixed;z-index:0;top:0;bottom:0;pointer-events:none;
+    left:calc(var(--cx) - var(--cw)/2 - 5rem);width:calc(var(--cw) + 10rem);
     background:linear-gradient(to right,transparent,rgba(22,62,74,.42) 24%,rgba(22,62,74,.42) 76%,transparent);
     -webkit-mask-image:linear-gradient(to bottom,transparent 14%,#000 46%);
             mask-image:linear-gradient(to bottom,transparent 14%,#000 46%)}
@@ -554,9 +561,13 @@ footer{border-top-color:transparent}
   .head>.swap{margin-bottom:1.1rem}
   .list{overflow:visible;padding:0}
 }
+/* ecran lat dar scund (telefon culcat): totul mai mic, ca sa incapa in poiana */
 @media (max-height:540px) and (min-aspect-ratio:4/5){
-  .sheet{padding:14vh 1.2rem 2rem}
-  .hand{width:4.4rem}
+  html{font-size:14.5px}
+  .sheet{padding:13vh .2rem 34vh}
+  .hand{width:4.2rem;margin-bottom:.3rem}
+  h1{font-size:1.45rem;margin-bottom:.3rem}
+  .slogan{margin-bottom:.9rem}
 }
 </style>
 <script>
