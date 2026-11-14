@@ -16,8 +16,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/kids/apple-touch-icon.png">
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/kids/apple-touch-icon.png">
 <link rel="manifest" href="/kids/site.webmanifest">
-<meta property="og:title" content="Nossos livros de passatempos: seu próximo desafio positivo.">
-<meta property="og:description" content="Pegue um lápis e dê a si mesmo um momento de calma — sozinho ou em família. Reconecte-se.">
+<meta property="og:title" content="Ancestral Mark Kids">
+<meta property="og:description" content="Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.">
 <meta property="og:url" content="https://ancestralmark.github.io/kids/pt">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ancestral Mark Kids">
@@ -27,14 +27,14 @@
 <meta property="og:image" content="https://ancestralmark.github.io/kids/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nossos livros de passatempos: seu próximo desafio positivo.">
+<meta property="og:image:alt" content="Ancestral Mark Kids">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nossos livros de passatempos: seu próximo desafio positivo.">
-<meta name="twitter:description" content="Pegue um lápis e dê a si mesmo um momento de calma — sozinho ou em família. Reconecte-se.">
+<meta name="twitter:title" content="Ancestral Mark Kids">
+<meta name="twitter:description" content="Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.">
 <meta name="twitter:image" content="https://ancestralmark.github.io/kids/share.jpg">
 <!-- O singura culoare de bara. Doua etichete theme-color fara media query
      se bat intre ele si browserul o foloseste doar pe ultima. -->
-<meta name="theme-color" content="#37697A">
+<meta name="theme-color" content="#2A5F8F">
 
 <style>/* FONTURILE STAU PE SITE-UL NOSTRU, nu la Google.
    Doua motive. Unul legal: cand pagina cere un font de la Google, browserul
@@ -68,8 +68,8 @@
 
 
 :root{
-  --bg:#2F6373; --deep:#37697A; --blue:#AAD1ED; --orange:#FFC93C; --red:#FF5D73;
-  --cream:#F5EDE6; --onblue:#2F6373; --onorange:#17333B;
+  --bg:#24558A; --deep:#2A5F8F; --blue:#AAD1ED; --orange:#FFC93C; --red:#FF5D73;
+  --cream:#F5EDE6; --onblue:#24558A; --onorange:#0E2748;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -106,8 +106,8 @@ body{
 /* voal spre partea de jos: acolo imaginea are frunze deschise si textul
    nu s-ar mai citi. sta SUB continut, dar rama de frunze (z-index 3) ramane peste. */
 .leaf.t::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 34%,#2F637373 54%,
-                             #2F6373CC 74%,#2F6373F2 100%)}
+  background:linear-gradient(to bottom,transparent 34%,#24558A73 54%,
+                             #24558ACC 74%,#24558AF2 100%)}
 
 /* acelasi fundal, dar DOAR rama de frunze — banda de sus si cea de jos —
    DEASUPRA continutului. continutul trece pe sub ele, nu peste. */
@@ -336,7 +336,7 @@ footer{margin-top:1.9rem;padding-top:1.3rem;
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
   white-space:nowrap}                      /* ramane pentru cititoarele de ecran */
 .lang select{font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:.55rem;
-  border:1px solid rgba(170,209,237,.45);background:#3F7585;color:var(--cream);cursor:pointer}
+  border:1px solid rgba(170,209,237,.45);background:#356B9E;color:var(--cream);cursor:pointer}
 /* Subsolul: doua randuri. Randul legal e mereu in engleza si mereu de la
    stanga la dreapta — altfel, pe pagina araba, punctul final sare in capat. */
 small{display:block;color:var(--blue);opacity:.72;font-size:.78rem;margin-top:.85rem;
@@ -491,80 +491,89 @@ small .sep{opacity:.42;padding:0 .3rem}
    cat sa ramana citibile peste desen.
    Coroana copacilor (.leaf.b) sta DEASUPRA continutului: la derulare palma
    si butoanele trec pe sub creanga, nu peste ea. */
-body{background:#39707F}
+body{background:#2A5F8F}
 .leaf.t::after{display:none}
-.row,.shop-alt,.swap,.share,.langbtn{background:rgba(18,56,66,.56)}
-h1,.slogan,h2,small,.swap,.share,.langbtn{text-shadow:0 1px 3px rgba(10,40,48,.75)}
+.row,.shop-alt,.swap,.share,.langbtn{background:rgba(13,40,76,.62)}
+h1,.slogan,h2,small,.swap,.share,.langbtn{text-shadow:0 1px 3px rgba(6,24,52,.85)}
 .slogan{opacity:1}
 small,small+small{opacity:.9}
 footer{border-top-color:transparent}
 
-/* ---- telefon si ecrane inalte. Trei straturi:
-   1. in spate, pe loc: padurea in ceata (coroana + poiana prelungita in jos),
-      deci fundalul e desen de sus pana jos, nu culoare plina;
-   2. deasupra continutului, pe loc: coroana cu cei trei prieteni — palma si
-      butoanele trec pe sub ea la derulare;
-   3. la capatul paginii, derulandu-se cu ea: ceilalti sapte prieteni, intregi,
-      fara butoane peste ei. ---- */
-@media not (min-aspect-ratio:4/5){
-  .leaf{background-image:url("bg-tall.jpg");background-size:100% auto;
-    background-position:center top}
-  /* coroana cu cei trei prieteni: pe loc, deasupra continutului */
+/* fereastra de limbi: aceleasi albastruri ca pagina si butoanele ei */
+.langbox{background:rgba(38,88,138,.86);border-color:rgba(170,209,237,.34)}
+.langbox::backdrop{background:rgba(7,24,52,.72)}
+.lbi{background:rgba(13,40,76,.66);border-color:rgba(170,209,237,.24)}
+.lbi:hover,.lbi.hv{background:rgba(13,40,76,.9);border-color:rgba(170,209,237,.6)}
+.lbi:active{background:rgba(9,30,60,.95)}
+
+.kfoot,.ktop{display:none}
+
+/* ============ CE POZA SE FOLOSESTE UNDE ============
+   Ecran in picioare (telefon, tableta): POZA DE TELEFON.
+   Ecran culcat (telefon intors, tableta intoarsa, laptop, calculator):
+   POZA DE DESKTOP. */
+
+/* ---- in picioare. Trei straturi: in spate padurea; deasupra continutului,
+   pe loc, coroana cu cei trei prieteni (butoanele trec pe sub ea) si randul
+   celor sapte de jos. ---- */
+@media not all and (min-aspect-ratio:4/5){
+  .leaf{background-image:url("bg-tall.jpg");background-repeat:no-repeat;
+    background-size:100% auto;background-position:center top}
   .leaf.b{display:block;top:0;height:150vw;z-index:3;
-    --rama:linear-gradient(to bottom,#000 0,#000 23vw,transparent 35vw);
+    --rama:linear-gradient(to bottom,#000 0,#000 33vw,transparent 40vw);
     -webkit-mask-image:var(--rama);mask-image:var(--rama)}
-  .sheet{padding-top:31vw;padding-bottom:37vw}
+  .sheet{padding-top:38vw;padding-bottom:46vw}
   .hand{width:5.8rem;margin-bottom:.35rem}
   h1{margin-bottom:.35rem}
   .slogan{margin-bottom:.9rem}
   .swap{margin-bottom:.9rem}
   /* cele doua scene opresc atingerile: altfel un deget pus pe un personaj ar
      apasa butonul ascuns dedesubt */
-  .ktop{display:block;position:fixed;left:0;right:0;top:0;height:22vw;z-index:4}
-  /* cei sapte prieteni de jos: un singur rand, de la o margine la alta, pe loc.
-     Topirea de sus e in poza insasi. */
-  .kfoot{display:block;position:fixed;left:0;right:0;bottom:0;z-index:3;height:42vw;
+  .ktop{display:block;position:fixed;left:0;right:0;top:0;height:30vw;z-index:4}
+  .kfoot{display:block;position:fixed;left:0;right:0;bottom:0;height:52.5vw;z-index:3;
     pointer-events:auto;
     background:url("bg-bottom.webp") no-repeat center bottom/100% auto}
 }
-@media (min-aspect-ratio:4/5){.kfoot,.ktop{display:none}}
 
-/* ---- ecran lat (laptop, tableta culcata, telefon culcat).
-   Poza are doua straturi suprapuse perfect: in spate padurea intreaga, iar
-   DEASUPRA continutului aceeasi poza decupata — doar crengile, frunzele,
-   personajele si pamantul. Asa butoanele trec cu adevarat PE SUB frunze si
-   prin spatele prietenilor, in loc sa se ciocneasca de ei.
-   --iw = latimea la care e desenata poza (cover), ca sa asezam coloana pe
-   poiana din desen, nu pe mijlocul ecranului: poiana e putin spre stanga. ---- */
+/* ---- culcat: poza lata, in doua straturi suprapuse perfect — in spate
+   padurea intreaga, iar DEASUPRA continutului aceeasi poza decupata (crengi,
+   frunze, personaje, pamant). Butoanele trec pe sub frunze; nimic nu e pe
+   jumatate transparent. --iw = latimea la care e desenata poza (cover). ---- */
 @media (min-aspect-ratio:4/5){
   :root{--iw:max(100vw,150vh)}
   @supports (height:1lvh){:root{--iw:max(100vw,150lvh)}}
-  :root{--cx:calc(50vw - var(--iw)*.05);--cw:clamp(18.5rem,calc(var(--iw)*.27),29rem)}
-  .leaf{background-position:center 20%}
+  :root{--cx:50vw;--cw:clamp(18.5rem,calc(var(--iw)*.25),29rem)}
+  .leaf{background-position:center 41%}
   .leaf.b{display:block;background-image:url("fg-wide.webp");
     --rama:none;-webkit-mask-image:none;mask-image:none}
   html,body{height:100%}
   body{overflow:hidden}
   .sheet{display:block;position:absolute;top:0;height:100%;margin:0;
     left:calc(var(--cx) - var(--cw)/2);width:var(--cw);max-width:none;
-    padding:15vh .2rem 30vh;
+    padding:max(15vh,calc(var(--iw)*.105)) .2rem 30vh;
     overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
   .sheet::-webkit-scrollbar{width:0;height:0}
-  /* aburul din spatele coloanei: fara margini, se topeste in lateral si in sus */
   body::after{content:"";position:fixed;z-index:0;top:0;bottom:0;pointer-events:none;
     left:calc(var(--cx) - var(--cw)/2 - 5rem);width:calc(var(--cw) + 10rem);
-    background:linear-gradient(to right,transparent,rgba(22,62,74,.42) 24%,rgba(22,62,74,.42) 76%,transparent);
+    background:linear-gradient(to right,transparent,rgba(12,38,76,.46) 24%,rgba(12,38,76,.46) 76%,transparent);
     -webkit-mask-image:linear-gradient(to bottom,transparent 14%,#000 46%);
             mask-image:linear-gradient(to bottom,transparent 14%,#000 46%)}
+  /* ghirlanda cu funda si clopotei: pe ecrane late marginea de sus a pozei e
+     taiata, asa ca bucata din mijloc e prinsa separat de marginea de sus a
+     ecranului, la aceeasi scara cu poza. Butoanele trec pe sub ea. */
+  .ktop{display:block;position:fixed;z-index:4;top:0;pointer-events:none;
+    left:calc(50vw - var(--iw)*.19401);width:calc(var(--iw)*.38802);height:calc(var(--iw)*.10156);
+    background:url("top-wide.webp") no-repeat center top/100% 100%}
   .head{text-align:center}
   .hand{width:7.5rem;max-width:none;margin:0 auto .7rem}
   .head>.swap{margin-bottom:1.1rem}
   .list{overflow:visible;padding:0}
 }
-/* ecran lat dar scund (telefon culcat): totul mai mic, ca sa incapa in poiana */
+/* culcat si scund (telefon intors): totul mai mic, coloana mai ingusta */
 @media (max-height:540px) and (min-aspect-ratio:4/5){
   html{font-size:14.5px}
-  .sheet{padding:13vh .2rem 34vh}
+  :root{--cw:clamp(15rem,calc(var(--iw)*.25),29rem)}
+  .sheet{padding:max(13vh,calc(var(--iw)*.105)) .2rem 34vh}
   .hand{width:4.2rem;margin-bottom:.3rem}
   h1{font-size:1.45rem;margin-bottom:.3rem}
   .slogan{margin-bottom:.9rem}
