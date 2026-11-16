@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ancestral Mark Kids</title>
-<meta name="description" content="Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.">
+<meta name="description" content="Livros para colorir e passatempos coloridos, labirintos e livros de atividades para pequenas mentes curiosas.">
 <link rel="canonical" href="https://ancestralmark.github.io/kids/pt">
 <link rel="icon" href="/kids/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/kids/favicon-16.png" sizes="16x16" type="image/png">
@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/kids/apple-touch-icon.png">
 <link rel="manifest" href="/kids/site.webmanifest">
 <meta property="og:title" content="Ancestral Mark Kids">
-<meta property="og:description" content="Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.">
+<meta property="og:description" content="Livros para colorir e passatempos coloridos, labirintos e livros de atividades para pequenas mentes curiosas.">
 <meta property="og:url" content="https://ancestralmark.github.io/kids/pt">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ancestral Mark Kids">
@@ -30,7 +30,7 @@
 <meta property="og:image:alt" content="Ancestral Mark Kids">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ancestral Mark Kids">
-<meta name="twitter:description" content="Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.">
+<meta name="twitter:description" content="Livros para colorir e passatempos coloridos, labirintos e livros de atividades para pequenas mentes curiosas.">
 <meta name="twitter:image" content="https://ancestralmark.github.io/kids/share.jpg">
 <!-- O singura culoare de bara. Doua etichete theme-color fara media query
      se bat intre ele si browserul o foloseste doar pe ultima. -->
@@ -408,7 +408,7 @@ small .sep{opacity:.42;padding:0 .3rem}
   /* frunzele cad IMEDIAT, nu asteapta poza de fundal. Pe internet slab poza
      vine in cateva secunde, iar pana atunci omul vedea un ecran negru.
      Acum vede frunzele cazand, iar fundalul si restul intra cand sunt gata. */
-  .lf{animation:fall var(--d) linear var(--t) forwards}
+  .lf{animation:fall var(--d) linear var(--t) infinite}
   .play .lf svg{transform-origin:50% 45%;
           animation:sway var(--sw) ease-in-out var(--t) infinite alternate}
   @keyframes fall{
@@ -498,6 +498,14 @@ h1,.slogan,h2,small,.swap,.share,.langbtn{text-shadow:0 1px 3px rgba(6,24,52,.85
 .slogan{opacity:1}
 small,small+small{opacity:.9}
 footer{border-top-color:transparent}
+
+/* randul pentru parinti, sub slogan */
+.head>.slogan{margin-bottom:.3rem!important}
+.ps{margin:.1rem auto .95rem;text-align:center;font-family:"Baloo 2",Nunito,sans-serif;
+  font-weight:600;font-size:1rem;line-height:1.3;letter-spacing:.01em;
+  color:#fff;text-shadow:0 1px 3px rgba(6,24,52,.85)}
+/* doua bucati care nu se rup la mijloc: ori pe un rand, ori pe doua randuri intregi */
+.ps span{display:inline-block}
 
 /* fereastra de limbi: aceleasi albastruri ca pagina si butoanele ei */
 .langbox{background:rgba(38,88,138,.86);border-color:rgba(170,209,237,.34)}
@@ -604,7 +612,8 @@ footer{border-top-color:transparent}
   <div class="head">
     <img class="hand" src="hand.png" alt="">
     <h1>Ancestral Mark Kids</h1>
-    <p class="slogan">Passatempos coloridos, labirintos e jogos de palavras para pequenas mentes curiosas.</p>
+    <p class="slogan">Livros para colorir e passatempos coloridos, labirintos e livros de atividades para pequenas mentes curiosas.</p>
+    <p class="ps"><span>P.S. Para os pais:</span> <span>um momento de sossego para vocês.</span></p>
     <a class="swap" id="sw" href="#"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18"/></svg><b id="swt"></b><span class="go" aria-hidden="true">&rsaquo;</span></a>
   </div>
 
@@ -626,13 +635,13 @@ footer{border-top-color:transparent}
 
   <h2>Siga a gente</h2>
   <ul>
-    <li><a class="row" href="https://www.tiktok.com/@ancestral_mark_editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/tiktok.png" alt=""><span><span class="tt">TikTok</span><span class="ss">Desafios de palavras</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.instagram.com/ancestralmark/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/instagram.png" alt=""><span><span class="tt">Instagram</span><span class="ss">Nos bastidores</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.facebook.com/profile.php?id=61595210855885" target="_blank" rel="noopener noreferrer me"><img src="../_icons/facebook.png" alt=""><span><span class="tt">Facebook</span><span class="ss">Entre na comunidade</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.youtube.com/@Ancestral_Mark_Editorial" target="_blank" rel="noopener noreferrer me"><img src="../_icons/youtube.png" alt=""><span><span class="tt">YouTube</span><span class="ss">Vídeos e desafios</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.linkedin.com/in/ancestral-mark-editorial/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/linkedin.png" alt=""><span><span class="tt">LinkedIn</span><span class="ss">Nosso mundo editorial</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://x.com/ancestral_mark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/x.png" alt=""><span><span class="tt">X</span><span class="ss">Novidades e avisos</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
-    <li><a class="row" href="https://www.threads.com/@ancestralmark" target="_blank" rel="noopener noreferrer me"><img src="../_icons/threads.png" alt=""><span><span class="tt">Threads</span><span class="ss">Conversas rápidas</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.tiktok.com/@ancestral_mark_kids" target="_blank" rel="noopener noreferrer me"><img src="../_icons/tiktok.png" alt=""><span><span class="tt">TikTok</span><span class="ss">Desafios de palavras</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.instagram.com/ancestral_mark_kids" target="_blank" rel="noopener noreferrer me"><img src="../_icons/instagram.png" alt=""><span><span class="tt">Instagram</span><span class="ss">Nos bastidores</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.facebook.com/profile.php?id=61595411668221" target="_blank" rel="noopener noreferrer me"><img src="../_icons/facebook.png" alt=""><span><span class="tt">Facebook</span><span class="ss">Entre na comunidade</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.youtube.com/@Ancestral_Mark_Kids" target="_blank" rel="noopener noreferrer me"><img src="../_icons/youtube.png" alt=""><span><span class="tt">YouTube</span><span class="ss">Vídeos e desafios</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.linkedin.com/in/ancestral-mark-kids-716871449/" target="_blank" rel="noopener noreferrer me"><img src="../_icons/linkedin.png" alt=""><span><span class="tt">LinkedIn</span><span class="ss">Nosso mundo editorial</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://x.com/ancestralmark_k" target="_blank" rel="noopener noreferrer me"><img src="../_icons/x.png" alt=""><span><span class="tt">X</span><span class="ss">Novidades e avisos</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
+    <li><a class="row" href="https://www.threads.com/@ancestral_mark_kids" target="_blank" rel="noopener noreferrer me"><img src="../_icons/threads.png" alt=""><span><span class="tt">Threads</span><span class="ss">Conversas rápidas</span></span><span class="go" aria-hidden="true">&rsaquo;</span></a></li>
   </ul>
 
   <footer>
@@ -860,26 +869,28 @@ footer{border-top-color:transparent}
       var s=document.createElement("span"); s.className="lf";
       // una din trei e mai mare = mai aproape de ochi, deci cade mai repede
       var big = (k % 3 === 0);
-      var dur = big ? R(2.6,3.6) : R(3.4,5.2);
+      var dur = big ? R(5,7) : R(7,10.5);
       // primele 8 pornesc din MIJLOCUL caderii (intarziere negativa), ca ecranul
       // sa fie deja plin de frunze din primul cadru, nu gol.
-      var del = (dinMijloc && k < 8) ? -R(.28,.78)*dur : R(0,1.4);
+      var del = (dinMijloc) ? -R(0,1)*dur : R(0,4.5);
       s.style.cssText = "--l:"+R(1,95).toFixed(1)+"%;"
-        + "--w:"+(big ? R(24,38) : R(12,22)).toFixed(0)+"px;"
+        + "--w:"+(big ? R(18,28) : (k % 2 ? R(5,9) : R(10,16))).toFixed(0)+"px;"
         + "--d:"+dur.toFixed(2)+"s;--t:"+del.toFixed(2)+"s;"
         + "--x:"+R(-60,60).toFixed(0)+"px;--sw:"+R(1,1.9).toFixed(2)+"s;"
         + "--r0:"+R(-30,30).toFixed(0)+"deg;--r1:"+R(40,160).toFixed(0)+"deg;";
-      s.innerHTML = '<svg viewBox="0 0 100 100" fill="'+C[(Math.random()*4)|0]+'"><path d="'
-                  + F[(Math.random()*2)|0] + '"/></svg>';
+      var o=(big?R(.85,1):R(.55,.9)).toFixed(2), h;
+      if (k % 2){ h='<circle cx="50" cy="50" r="30" fill="#fff"/>'; }
+      else { h=''; for (var q=0;q<6;q++) h+='<path transform="rotate('+(q*60)+' 50 50)" d="M50 50V7M50 24l-11-11M50 24l11-11M50 38l-7-7M50 38l7-7"/>'; }
+      s.innerHTML = '<svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity="'+o+'">'+h+'</svg>';
       return s;
     }
     // frunzele de intrare: pornesc din mijlocul caderii, ca ecranul sa fie
     // plin din primul cadru
-    window.__frunze(24, true);
+    window.__frunze(innerWidth<700?28:42, true);
     setTimeout(function(){
       var f=document.getElementById("fall");
-      if (f && f.parentNode) f.parentNode.removeChild(f);
-    }, 10000);
+      
+    }, 17000);
   }
 
   // grila de litere, ca intr-un word search
